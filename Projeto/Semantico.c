@@ -1,0 +1,402 @@
+//
+//  Semantico.c
+//  Compilador
+//
+//  Created by Renan Mendes on 12/3/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#include "stdio.h"
+#include "Semantico.h"
+#include "TabelaSimbolos.h"
+#include "Token.h"
+#include "stdlib.h"
+#include "string.h"
+#include "stacktoken.h"
+
+#define MAX_LABEL 50
+
+Escopo* escopoAtual;
+Expressao* expressaoAtual;
+Token* lvalue;
+
+char* getEmptyString(int length) {
+    char* s = (char*)malloc(length*sizeof(char));
+    int i;
+    for(i = 0; i < length; ++i) {
+        s[i] = '\0';
+    }
+    
+    return s;
+}
+
+char* recuperaLabel(Token* t) {
+    char* label;
+    if(t->tipo == NUM) {
+        int c = atoi(t->valor);
+        label = recuperaLabelConstante(c, &constTab);
+        if(label == 0) {
+            printf("Constante %s nao presente na tabela de constantes", t->valor);
+            exit(1);
+        }
+    } else if(t->tipo == ID) {
+        label = recuperaLabelSimbolo(t->valor, escopoAtual);
+        if(label == 0) {
+            printf("Variavel '%s' nao declarada\n", t->valor);
+            exit(1);
+        }
+    }
+    
+    return label;
+}
+
+void geraCodigoOperacao(Token* operando, Token* operador) {
+    char* labelOperando = recuperaLabel(operando);
+    printf("%s %s\n", operador->valor, labelOperando);
+}
+
+void geraCodigoLoad(Token* var) {
+    char* labelOperando = recuperaLabel(var);
+    printf("LD %s\n", labelOperando);
+}
+
+void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
+    AcaoSemantica a = decidirAcaoSemantica(anterior, atual);
+    
+    // Sempre que achar um número, não importa onde
+    // adiciona-o à tabela de constantes
+    if(t->tipo == NUM) {
+        int c = atoi(t->valor);
+        if(!existeConstante(c, &constTab)) {
+            insereConstante(c, &constTab);
+        }
+    }
+    
+    if(a == 0) {
+        return;
+    }
+    
+    if(a == PROGRAM_MAIN) {
+        // Leu a primeira linha do main
+        Escopo* mainScope = (Escopo*) malloc(sizeof(Escopo));
+        initEscopo(mainScope);
+        mainScope->anterior = 0;
+        mainScope->nome = "main";
+        
+        // Adiciona escopo de primeiro nível
+        escopos.escopo[escopos.tamanho] = mainScope;
+        escopos.tamanho++;
+        
+        escopoAtual = mainScope;
+        printf("main OS /0\n");
+        
+    } else if(a == PROGRAM_END_MAIN) {
+        // Terminou o main
+        printf("HM /0\n");
+        
+    } else if(a == VARIAVEL_NA_TABELA) {
+        
+        if(!existeSimbolo(t->valor, escopoAtual)) {
+            char* label = getEmptyString(MAX_LABEL);
+            strcat(label, escopoAtual->nome);
+            strcat(label, "_");
+            strcat(label, t->valor);
+            
+            char* valor = getEmptyString(strlen(t->valor));
+            strcpy(valor, t->valor);
+            adicionarSimbolo(INT, valor, label, escopoAtual);
+        } else {
+            printf("Redeclaracao da variavel %s, linha %d", t->valor, t->linha);
+            getchar();
+            exit(1);
+        }
+    } else if(a == EMPILHA_IF) {
+        // Empilha if
+        StackPush(&pilhaIfs, contaIfs);
+        char* label = getEmptyString(MAX_LABEL);
+        strcat(label, "if_");
+        char idx[4];
+        sprintf(idx, "%d", contaIfs);
+        strcat(label, idx);
+        printf("%s OS /0\n", label);
+                
+        // Cria escopo interno
+        Escopo* internoIf = (Escopo*)malloc(sizeof(Escopo));
+        initEscopo(internoIf);
+        internoIf->anterior = escopoAtual;
+        char* nomeEscopo = getEmptyString(MAX_LABEL);
+        strcat(nomeEscopo, escopoAtual->nome);
+        strcat(nomeEscopo, "_");
+        strcat(nomeEscopo, label);
+        internoIf->nome = nomeEscopo;
+        insereEscopoInterno(escopoAtual, internoIf);
+        
+        free(label);
+        
+        // Muda o escopo atual
+        escopoAtual = internoIf;
+                
+        // Incrementa o contador de ifs
+        ++contaIfs;
+
+        
+    } else if(a == APOS_CONDICAO_IF) {
+        stackElementT idIf = StackPop(&pilhaIfs);
+        StackPush(&pilhaIfs, idIf);
+        
+        char* label = getEmptyString(MAX_LABEL);
+        strcat(label, "fim_if_");
+        char idx[4];
+        sprintf(idx, "%d", idIf);
+        strcat(label, idx);
+        printf("JZ %s\n", label);
+        free(label);
+    } else if(a == TERMINA_IF) {
+        stackElementT idIf = StackPop(&pilhaIfs);
+        
+        char* label = getEmptyString(MAX_LABEL);
+        strcat(label, "fim_if_");
+        char idx[4];
+        sprintf(idx, "%d", idIf);
+        strcat(label, idx);
+        printf("%s OS /0\n", label); // fim_if_<id>
+        free(label);
+        
+        // Volta ao escopo anterior
+        escopoAtual = escopoAtual->anterior;
+        
+    } else if(a == TERMINA_IF_EMPILHA_ELSE) {
+        // Desempilha if
+        stackElementT ifId = StackPop(&pilhaIfs);
+        
+        // Empilha else
+        StackPush(&pilhaElses, ifId);
+        
+        char* label = getEmptyString(MAX_LABEL);
+        strcat(label, "fim_else_");
+        char idx[4];
+        sprintf(idx, "%d", ifId);
+        strcat(label, idx);
+        printf("JP %s\n", label);
+        free(label);
+                
+        
+        label = getEmptyString(MAX_LABEL);
+        idx[0] = idx[1] = idx[2] = idx[3] = '\0';
+        strcat(label, "fim_if_");
+        sprintf(idx, "%d", ifId);
+        strcat(label, idx);
+        printf("%s OS /0\n", label); // fim_if_<id>
+        free(label);
+        
+        label = getEmptyString(MAX_LABEL);
+        strcat(label, "else_");
+        strcat(label, idx);
+        
+        // Volta ao escopo anterior e cria um escopo para o else
+        escopoAtual = escopoAtual->anterior;
+        Escopo* internoElse = (Escopo*)malloc(sizeof(Escopo));
+        initEscopo(internoElse);
+        char* nomeEscopo = (char*)malloc(MAX_LABEL*sizeof(char));
+        strcat(nomeEscopo, escopoAtual->nome);
+        strcat(nomeEscopo, "_");
+        strcat(nomeEscopo, label);
+        internoElse->nome = nomeEscopo;
+        insereEscopoInterno(escopoAtual, internoElse);
+        internoElse->anterior = escopoAtual;
+        free(label);
+        
+        // Muda o escopo atual
+        escopoAtual = internoElse;
+    } else if(a == TERMINA_ELSE) {
+        stackElementT elseId = StackPop(&pilhaElses);
+        
+        char* label = getEmptyString(MAX_LABEL);
+        strcat(label, "fim_else_");
+        char idx[4];
+        sprintf(idx, "%d", elseId);
+        strcat(label, idx);
+        printf("%s OS /0\n", label);
+        free(label);
+        
+        // Volta ao escopo anterior
+        escopoAtual = escopoAtual->anterior;
+    } else if(a == EMPILHA_WHILE) {
+        // Empilha while
+        StackPush(&pilhaWhiles, contaWhiles);
+        char* label = getEmptyString(MAX_LABEL);
+        strcat(label, "while_");
+        char idx[4];
+        sprintf(idx, "%d", contaWhiles);
+        strcat(label, idx);
+        printf("%s OS /0\n", label);
+        
+        // Cria escopo interno
+        Escopo* internoWhile = (Escopo*)malloc(sizeof(Escopo));
+        initEscopo(internoWhile);
+        internoWhile->anterior = escopoAtual;
+        char* nomeEscopo = getEmptyString(MAX_LABEL);
+        strcat(nomeEscopo, escopoAtual->nome);
+        strcat(nomeEscopo, "_");
+        strcat(nomeEscopo, label);
+        internoWhile->nome = nomeEscopo;
+        insereEscopoInterno(escopoAtual, internoWhile);
+        
+        // Muda o escopo atual
+        escopoAtual = internoWhile;
+        
+        // Incrementa o contador de whiles
+        ++contaWhiles;
+    } else if(a == APOS_CONDICAO_WHILE) {
+        stackElementT idWhile = StackPop(&pilhaWhiles);
+        StackPush(&pilhaWhiles, idWhile);
+        
+        char* label = getEmptyString(MAX_LABEL);
+        strcat(label, "fim_while_");
+        char idx[4];
+        sprintf(idx, "%d", idWhile);
+        strcat(label, idx);
+        printf("JZ %s\n", label);
+        free(label);
+
+    } else if(a == TERMINA_WHILE) {
+        stackElementT idWhile = StackPop(&pilhaWhiles);
+        
+        char* label = getEmptyString(MAX_LABEL);
+        strcat(label, "while_");
+        char idx[4];
+        sprintf(idx, "%d", idWhile);
+        strcat(label, idx);
+        printf("JP %s\n", label);
+        free(label);
+        
+        label = getEmptyString(MAX_LABEL);
+        strcat(label, "fim_while_");
+        idx[0] = idx[1] = idx[2] = idx[3] = '\0';
+        sprintf(idx, "%d", idWhile);
+        strcat(label, idx);
+        printf("%s OS /0\n", label);
+        free(label);
+        
+        // Volta ao escopo anterior
+        escopoAtual = escopoAtual->anterior;
+    } else if(a == EMPILHA_OPERANDO) {
+        StackTokenPush(&pilhaOperandos, t);
+        // Verifica se o operador passado era de
+        // multiplicacao ou divisao. Se for o caso
+        // faz a conta de uma vez
+        Token* operador = 0;
+        if(!StackTokenIsEmpty(&pilhaOperadores)) {
+            operador = StackTokenPop(&pilhaOperadores);
+        }
+        
+        if(operador != 0) {
+            if(!strcmp(operador->valor, "*") || !strcmp(operador->valor, "/")) {
+                Token* ultimo = StackTokenPop(&pilhaOperandos);
+                Token* penult = StackTokenPop(&pilhaOperandos);
+                
+                char* label = recuperaLabel(penult);
+                printf("LD %s\n", label);
+                
+                geraCodigoOperacao(ultimo, operador);
+            } else {
+                // Devolve o operador para a pilha
+                StackTokenPush(&pilhaOperadores, operador);
+            }
+        }
+        
+    } else if(a == EMPILHA_OPERADOR) {
+        StackTokenPush(&pilhaOperadores, t);
+    } else if(a == RESOLVE_EXPRESSAO) {
+        StackTokenPush(&pilhaOperadores, t);
+        // Desempilha o id da expressao
+        //StackPop(&pilhaExpressoes);
+        
+        // Desempilha imediatamente o parentese que fecha
+        StackTokenPop(&pilhaOperadores);
+        if(pilhaOperadores.top == pilhaOperandos.top) {
+            Token* ultimo = StackTokenPop(&pilhaOperandos);
+            geraCodigoLoad(ultimo);
+        }
+        
+        Token* operador = StackTokenPop(&pilhaOperadores);
+        while(strcmp(operador->valor, "(")) {
+            // Escreve o codigo para efetuar a operacao
+            geraCodigoOperacao(StackTokenPop(&pilhaOperandos), operador);
+            operador = StackTokenPop(&pilhaOperadores);
+        }
+        
+        char* label = getEmptyString(MAX_LABEL);
+        char* id = getEmptyString(5);
+        strcat(label, "TEMP");
+        sprintf(id, "%d", contaExp);
+        strcat(label, id);
+        printf("MM %s\n", label);
+        
+        if(!existeSimbolo(label, escopoAtual)) {
+            // Adiciona simbolo aqui para poder ser declarado
+            // na parte final do programa
+            adicionarSimbolo(INT, label, label, escopoAtual);
+        } else {
+            printf("Ja havia uma variavel %s. Verificar.", label);
+            getchar();
+            exit(1);
+        }
+    } else if(a == GUARDA_LVALUE) {
+        lvalue = (Token*) malloc(sizeof(Token));
+        lvalue->coluna  = t->coluna;
+        lvalue->linha   = t->linha;
+        lvalue->tipo    = t->tipo;
+        int i;
+        for(i = 0; i < 256; ++i){
+            lvalue->valor[i] = '\0';
+        }
+        
+        strcat(lvalue->valor, t->valor);
+    } else if(a == REALIZA_ATRIBUICAO) {
+        char* label = recuperaLabel(lvalue);
+        
+        printf("MM %s\n", label);
+        free(lvalue);
+    }
+}
+
+AcaoSemantica decidirAcaoSemantica(Estado anterior, Estado atual) {
+    if(atual == REST_COMANDO_ATR_2_AC) {
+        int a;
+        a = 1+4;
+    }
+    
+    int i;
+    for(i = 0; i < NUMRELACOES; ++i) {
+        if((relacoes[i].anterior == anterior || relacoes[i].anterior == QUALQUER_ESTADO) && relacoes[i].atual == atual) {
+            return relacoes[i].a;
+        }
+    }
+    
+    return 0;
+}
+
+
+// Funcoes que declaram as variaveis ao final do programa
+void declararVC(Escopo* e) {    
+    int i;
+    for(i = 0; i < e->numInternos; ++i) {
+        declararVC(e->internos[i]);
+    }
+    
+    for(i = 0; i < e->numSimbolos; ++i) {
+        printf("%s K /000\n", e->simbolos[i].label);
+    }
+}
+
+void declararVariaveisConstantes() {
+    int i;
+    for(i = 0; i < escopos.tamanho; ++i) {
+        declararVC(escopos.escopo[i]);
+    }
+    
+    for(i = 0; i < constTab.tamanho; ++i) {
+        printf("%s K /%X\n", constTab.constantes[i]->label, constTab.constantes[i]->valor);
+    }
+}

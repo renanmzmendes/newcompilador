@@ -1,0 +1,93 @@
+//
+//  Semantico.h
+//  Compilador
+//
+//  Created by Renan Mendes on 12/3/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#ifndef SEMANTICO_H
+#define SEMANTICO_H
+
+#include "TabelaSimbolos.h"
+#include "ConstantesSintatico.h"
+#include "ConstantesSemantico.h"
+#include "Token.h"
+#include "stack.h"
+#include "stackexp.h"
+#include "stacktoken.h"
+
+#define MAX_ESCOPOS 50
+#define MAX_TOKENS 50
+
+typedef struct {
+    Token* tokens[MAX_TOKENS];
+    int tamanho;
+} Tokens;
+
+typedef struct {
+    Escopo* escopo[MAX_ESCOPOS];
+    int tamanho;
+} Escopos;
+
+Tokens tokens;
+Escopos escopos;
+TabelaConstantes constTab;
+
+static int contaWhiles = 0;
+static int contaIfs = 0;
+static int contaExp = 0;
+
+stackT pilhaIfs;
+stackT pilhaElses;
+stackT pilhaWhiles;
+
+stackToken pilhaOperadores;
+stackToken pilhaOperandos;
+stackT pilhaExpressoes;
+
+
+void executarAcaoSemantica(Estado anterior, Estado atual, Token* t);
+AcaoSemantica decidirAcaoSemantica(Estado e, Estado atual);
+void declararVariaveisConstantes();
+
+
+
+// Tabela de relação entre estados correntes e ações semânticas
+
+typedef struct {
+    Estado atual;
+    Estado anterior;
+    AcaoSemantica a;
+} EstadoAcao;
+
+static EstadoAcao relacoes[] = {
+//  {ATUAL, ANTERIOR, ACAO_SEMANTICA}
+    {PROGRAM_5, PROGRAM_4, PROGRAM_MAIN},
+    {PROGRAM_6_AC, PROGRAM_5, PROGRAM_END_MAIN},
+    {REST_DECL_VAR_SIMP_1_AC, REST_DECL_VAR_SIMP_INICIAL, VARIAVEL_NA_TABELA},
+    {COMANDO_COND_1, COMANDO_COND_INICIAL, EMPILHA_IF},
+    {COMANDO_COND_5, COMANDO_COND_4, APOS_CONDICAO_IF},
+    {COMANDO_COND_7_AC, COMANDO_COND_5, TERMINA_IF},
+    {COMANDO_COND_6, COMANDO_COND_5, TERMINA_IF_EMPILHA_ELSE},
+    {COMANDO_COND_7_AC, COMANDO_COND_8, TERMINA_ELSE},
+    {COMANDO_ITER_1, COMANDO_ITER_INICIAL, EMPILHA_WHILE},
+    {COMANDO_ITER_5, COMANDO_ITER_4, APOS_CONDICAO_WHILE},
+    {COMANDO_ITER_6_AC, COMANDO_ITER_5, TERMINA_WHILE},
+    
+    // OK
+    {FATOR_2_AC, FATOR_INICIAL, EMPILHA_OPERANDO},
+    {FATOR_1_AC, FATOR_INICIAL, EMPILHA_OPERANDO},
+    {FATOR_3, FATOR_INICIAL, EMPILHA_OPERADOR},
+    
+    {ATR_OU_CHAMADA_1, ATR_OU_CHAMADA_INICIAL, GUARDA_LVALUE},
+    {REST_COMANDO_ATR_2_AC, QUALQUER_ESTADO, REALIZA_ATRIBUICAO},
+    
+    {FATOR_2_AC, FATOR_4, RESOLVE_EXPRESSAO},
+    {TERMO_INICIAL, TERMO_1_AC, EMPILHA_OPERADOR},
+    {EXPR_INICIAL, EXPR_1_AC, EMPILHA_OPERADOR}    
+};
+
+#define NUMRELACOES (sizeof(relacoes)/sizeof(*relacoes))
+
+#endif

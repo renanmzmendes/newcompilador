@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DD76FB00486AB0100D96B5E /* Compilador.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* Compilador.1 */; };
+		C15F72BC145DC7A900D3A4F7 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = C15F72BA145DC7A900D3A4F7 /* stack.c */; };
+		C15F72BF145DCB1200D3A4F7 /* Sintatico.c in Sources */ = {isa = PBXBuildFile; fileRef = C15F72BD145DCB1200D3A4F7 /* Sintatico.c */; };
+		C1709514148ACB6A004FAA64 /* Semantico.c in Sources */ = {isa = PBXBuildFile; fileRef = C1709512148ACB6A004FAA64 /* Semantico.c */; };
+		C1B2BE84148C509300DB63B7 /* stackexp.c in Sources */ = {isa = PBXBuildFile; fileRef = C1B2BE82148C509200DB63B7 /* stackexp.c */; };
+		C1B2BE88148C613A00DB63B7 /* stacktoken.c in Sources */ = {isa = PBXBuildFile; fileRef = C1B2BE86148C613900DB63B7 /* stacktoken.c */; };
+		F1271F16144A0FAE00C41553 /* Lexico.c in Sources */ = {isa = PBXBuildFile; fileRef = F1271F15144A0FAE00C41553 /* Lexico.c */; };
+		F1501A10148ABBC200700D6B /* TabelaSimbolos.c in Sources */ = {isa = PBXBuildFile; fileRef = F1501A0F148ABBC200700D6B /* TabelaSimbolos.c */; };
+		F15A5863142E4BBE00560AB9 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F15A5861142E4BBE00560AB9 /* main.c */; };
+		F15A58AB142E4F7A00560AB9 /* Token.c in Sources */ = {isa = PBXBuildFile; fileRef = F15A58AA142E4F7A00560AB9 /* Token.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				8DD76FB00486AB0100D96B5E /* Compilador.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8DD76FB20486AB0100D96B5E /* Compilador */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Compilador; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15F72BA145DC7A900D3A4F7 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
+		C15F72BB145DC7A900D3A4F7 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		C15F72BD145DCB1200D3A4F7 /* Sintatico.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Sintatico.c; sourceTree = "<group>"; };
+		C15F72BE145DCB1200D3A4F7 /* Sintatico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sintatico.h; sourceTree = "<group>"; };
+		C1709512148ACB6A004FAA64 /* Semantico.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Semantico.c; sourceTree = "<group>"; };
+		C1709513148ACB6A004FAA64 /* Semantico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Semantico.h; sourceTree = "<group>"; };
+		C1709517148ACF92004FAA64 /* ConstantesSemantico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantesSemantico.h; sourceTree = "<group>"; };
+		C1B2BE82148C509200DB63B7 /* stackexp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stackexp.c; sourceTree = "<group>"; };
+		C1B2BE83148C509300DB63B7 /* stackexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stackexp.h; sourceTree = "<group>"; };
+		C1B2BE86148C613900DB63B7 /* stacktoken.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stacktoken.c; sourceTree = "<group>"; };
+		C1B2BE87148C613900DB63B7 /* stacktoken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stacktoken.h; sourceTree = "<group>"; };
+		C1B85511145DE3610036CA2E /* ConstantesSintatico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantesSintatico.h; sourceTree = "<group>"; };
+		C1B85513145E1CF60036CA2E /* TabelasSintatico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabelasSintatico.h; sourceTree = "<group>"; };
+		C6A0FF2C0290799A04C91782 /* Compilador.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Compilador.1; sourceTree = "<group>"; };
+		F1271F14144A0FAE00C41553 /* Lexico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lexico.h; sourceTree = "<group>"; };
+		F1271F15144A0FAE00C41553 /* Lexico.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Lexico.c; sourceTree = "<group>"; };
+		F1501A0E148ABBC200700D6B /* TabelaSimbolos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabelaSimbolos.h; sourceTree = "<group>"; };
+		F1501A0F148ABBC200700D6B /* TabelaSimbolos.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TabelaSimbolos.c; sourceTree = "<group>"; };
+		F15A5861142E4BBE00560AB9 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = SOURCE_ROOT; };
+		F15A58A9142E4F7A00560AB9 /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		F15A58AA142E4F7A00560AB9 /* Token.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Token.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76FAD0486AB0100D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* Compilador */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				C6A0FF2B0290797F04C91782 /* Documentation */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = Compilador;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C1B2BE86148C613900DB63B7 /* stacktoken.c */,
+				C1B2BE87148C613900DB63B7 /* stacktoken.h */,
+				C1B2BE82148C509200DB63B7 /* stackexp.c */,
+				C1B2BE83148C509300DB63B7 /* stackexp.h */,
+				F15A5861142E4BBE00560AB9 /* main.c */,
+				F15A58A9142E4F7A00560AB9 /* Token.h */,
+				F15A58AA142E4F7A00560AB9 /* Token.c */,
+				F1271F14144A0FAE00C41553 /* Lexico.h */,
+				F1271F15144A0FAE00C41553 /* Lexico.c */,
+				C15F72BA145DC7A900D3A4F7 /* stack.c */,
+				C15F72BB145DC7A900D3A4F7 /* stack.h */,
+				C15F72BD145DCB1200D3A4F7 /* Sintatico.c */,
+				C15F72BE145DCB1200D3A4F7 /* Sintatico.h */,
+				C1B85511145DE3610036CA2E /* ConstantesSintatico.h */,
+				C1B85513145E1CF60036CA2E /* TabelasSintatico.h */,
+				F1501A0E148ABBC200700D6B /* TabelaSimbolos.h */,
+				F1501A0F148ABBC200700D6B /* TabelaSimbolos.c */,
+				C1709512148ACB6A004FAA64 /* Semantico.c */,
+				C1709513148ACB6A004FAA64 /* Semantico.h */,
+				C1709517148ACF92004FAA64 /* ConstantesSemantico.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FB20486AB0100D96B5E /* Compilador */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6A0FF2B0290797F04C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C6A0FF2C0290799A04C91782 /* Compilador.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76FA90486AB0100D96B5E /* Compilador */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "Compilador" */;
+			buildPhases = (
+				8DD76FAB0486AB0100D96B5E /* Sources */,
+				8DD76FAD0486AB0100D96B5E /* Frameworks */,
+				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Compilador;
+			productInstallPath = "$(HOME)/bin";
+			productName = Compilador;
+			productReference = 8DD76FB20486AB0100D96B5E /* Compilador */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "Compilador" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* Compilador */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76FA90486AB0100D96B5E /* Compilador */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76FAB0486AB0100D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F15A5863142E4BBE00560AB9 /* main.c in Sources */,
+				F15A58AB142E4F7A00560AB9 /* Token.c in Sources */,
+				F1271F16144A0FAE00C41553 /* Lexico.c in Sources */,
+				C15F72BC145DC7A900D3A4F7 /* stack.c in Sources */,
+				C15F72BF145DCB1200D3A4F7 /* Sintatico.c in Sources */,
+				F1501A10148ABBC200700D6B /* TabelaSimbolos.c in Sources */,
+				C1709514148ACB6A004FAA64 /* Semantico.c in Sources */,
+				C1B2BE84148C509300DB63B7 /* stackexp.c in Sources */,
+				C1B2BE88148C613A00DB63B7 /* stacktoken.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB928608733DD80010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = Compilador;
+			};
+			name = Debug;
+		};
+		1DEB928708733DD80010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = Compilador;
+			};
+			name = Release;
+		};
+		1DEB928A08733DD80010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB928B08733DD80010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "Compilador" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB928608733DD80010E9CD /* Debug */,
+				1DEB928708733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "Compilador" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB928A08733DD80010E9CD /* Debug */,
+				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
