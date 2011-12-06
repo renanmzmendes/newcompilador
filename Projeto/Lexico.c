@@ -32,7 +32,7 @@ static int TabelaLexica[NumEstados][256];
 #include "Lexico.h"
 
 void InicializaLexico(){
-	linha = 1;
+	linha = 0;
 	coluna = 0;
 	criarTabela_De_Caracteres_Especiais();
 	criarTabelaDeEstados();
@@ -155,6 +155,7 @@ void criarTabelaDeEstados(){
 	}	
 }
 
+
 Token *getNextToken(FILE *inputFile){
 	if (ch == '\0') {// se é primeira chamada Lê o primeiro caractere do arquivo de entrada
 		ch = fgetc(inputFile);
@@ -173,11 +174,9 @@ Token *getNextToken(FILE *inputFile){
 		while (ch != '\n') {
 			ch = getc(inputFile);
 		}
-		ch = getc(inputFile);
-		linha++;
-		coluna=0;
-	}
-    
+		estado_Atual = Terminal_PONTUACAO;
+	}	
+	
 	//Grava o caractere lido no Buffer do Lexema e calcula o próximo estado
 	// sempre que a função getNextToken for chamada o ch estará 
 	// apontando para o primeiro caractere do próximo token
@@ -185,10 +184,11 @@ Token *getNextToken(FILE *inputFile){
 	BufferLexema[strlen(BufferLexema)] = ch;
     if (ch == '\377') {
         estado_Atual = Fim_de_Arquivo;
-    } else {
-        estado_Atual = TabelaLexica[estado_Atual][ch];
-    }
-    
+    } else if (estado_Atual == 0) {
+		estado_Atual = TabelaLexica[estado_Atual][ch];
+
+	}
+
 	while (estado_Atual >= 0) {
 		ch = getc(inputFile);
 		coluna++;
