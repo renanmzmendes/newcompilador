@@ -90,11 +90,22 @@ static EstadoAcao relacoes[] = {
     
     // Caso receba um "+" ou "-"
     {EXPR_INICIAL, EXPR_1_AC, EMPILHA_OPERADOR},
+    
+    // Caso fim da expressão, quando desempilha o estado
+    {COMANDO_RETORNO_2_AC, EXPR_1_AC, SAIDA_EXPRESSAO},
+    {COMPARACAO_1, EXPR_1_AC, SAIDA_EXPRESSAO},
+    {COMPARACAO_3_AC, EXPR_1_AC, SAIDA_EXPRESSAO},
+    {FATOR_4, EXPR_1_AC, SAIDA_EXPRESSAO},
+    {LISTA_EXPR_1_AC, EXPR_1_AC, SAIDA_EXPRESSAO},
+    {PARAM_1_AC, EXPR_1_AC, SAIDA_EXPRESSAO},
+    {REST_COMANDO_ATR_ARRAY_5_AC, EXPR_1_AC, SAIDA_EXPRESSAO},
+    {REST_COMANDO_ATR_STRUCT_4_AC, EXPR_1_AC, SAIDA_EXPRESSAO},
+    {REST_COMANDO_ATR_2_AC, EXPR_1_AC, SAIDA_EXPRESSAO},
     ////////////////////////////////////////////////////////
     
     //////////////////// ATRIBUICAO ////////////////////////
     {ATR_OU_CHAMADA_1, ATR_OU_CHAMADA_INICIAL, GUARDA_LVALUE},
-    {REST_COMANDO_ATR_2_AC, QUALQUER_ESTADO, REALIZA_ATRIBUICAO},
+    {ATR_OU_CHAMADA_2_AC, REST_COMANDO_ATR_2_AC, REALIZA_ATRIBUICAO},
     ////////////////////////////////////////////////////////
 };
 

@@ -324,19 +324,14 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
             if(!strcmp(operador->valor, "*") || !strcmp(operador->valor, "/") ||
                !strcmp(operador->valor, "+") || !strcmp(operador->valor, "-")) {
                 // Executa a operação determinada pelo operador do topo da pilha
-                Token* topo = 0;
-                Token* abaixo = 0;
+                Token* topo = StackTokenPop(&pilhaOperandos);
+                Token* abaixo = StackTokenPop(&pilhaOperandos);
+                operador = StackTokenPop(&pilhaOperadores);
                 
-                while(!StackTokenIsEmpty(&pilhaOperadores)) {
-                    topo     = StackTokenPop(&pilhaOperandos);
-                    abaixo   = StackTokenPop(&pilhaOperandos);
-                    operador = StackTokenPop(&pilhaOperadores);
-                    
-                    // Gera o código da operação e coloca a variável
-                    // temporária criada na pilha de operandos
-                    geraCodigoOperacao(topo, abaixo, operador);
-                }
-                
+                // Gera o código da operação e coloca a variável
+                // temporária criada na pilha de operandos
+                geraCodigoOperacao(topo, abaixo, operador);
+                StackTokenPush(&pilhaOperadores, t);
             } else {
                 StackTokenPush(&pilhaOperadores, t);
             }
@@ -357,18 +352,15 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         if(operador != 0) {
             if(!strcmp(operador->valor, "*") || !strcmp(operador->valor, "/")) {
                 // Executa a operação determinada pelo operador do topo da pilha
-                Token* topo = 0;
-                Token* abaixo = 0;
-                
-                while(!StackTokenIsEmpty(&pilhaOperadores)) {
-                    topo     = StackTokenPop(&pilhaOperandos);
-                    abaixo   = StackTokenPop(&pilhaOperandos);
-                    operador = StackTokenPop(&pilhaOperadores);
+                Token* topo = StackTokenPop(&pilhaOperandos);
+                Token* abaixo = StackTokenPop(&pilhaOperandos);
+                operador = StackTokenPop(&pilhaOperadores);
                     
-                    // Gera o código da operação e coloca a variável
-                    // temporária criada na pilha de operandos
-                    geraCodigoOperacao(topo, abaixo, operador);
-                }
+                // Gera o código da operação e coloca a variável
+                // temporária criada na pilha de operandos
+                geraCodigoOperacao(topo, abaixo, operador);
+                StackTokenPush(&pilhaOperadores, t);
+                
             } else {
                 StackTokenPush(&pilhaOperadores, t);
             }
@@ -376,6 +368,27 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
             StackTokenPush(&pilhaOperadores, t);
         }
         
+    } else if(a == SAIDA_EXPRESSAO) { 
+        if(!StackTokenIsEmpty(&pilhaOperadores)) {
+            // Executa a operação determinada pelo operador do topo da pilha
+            Token* topo = 0;
+            Token* abaixo = 0;
+            Token* operador = 0;
+            
+            while(!StackTokenIsEmpty(&pilhaOperadores)) {
+                topo     = StackTokenPop(&pilhaOperandos);
+                abaixo   = StackTokenPop(&pilhaOperandos);
+                operador = StackTokenPop(&pilhaOperadores);
+                
+                // Gera o código da operação e coloca a variável
+                // temporária criada na pilha de operandos
+                geraCodigoOperacao(topo, abaixo, operador);
+            }
+            
+            // Ao final haverá ainda uma variável temporária
+            // na pilha. Deve-se desempilhá-la
+            StackPop(&pilhaOperandos);
+        }
     } else if(a == GUARDA_LVALUE) {
         lvalue = (Token*) malloc(sizeof(Token));
         lvalue->coluna  = t->coluna;
