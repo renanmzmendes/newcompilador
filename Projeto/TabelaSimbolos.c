@@ -52,6 +52,8 @@ char* recuperaLabelConstante(int c, TabelaConstantes* t) {
             return t->constantes[i]->label;
         }
     }
+    
+    return 0;
 }
 
 void initEscopo(Escopo* e){
@@ -84,6 +86,10 @@ void adicionarSimbolo(Tipo t, char* nome, char* label, Escopo* e){
     e->numSimbolos++;	
 }
 
+void adicionarVarTemp(char* label, TabelaVarTemp* t) {
+    t->vars[t->tamanho] = label;
+    t->tamanho++;
+}
 
 int existeSimbolo(char* nome, Escopo* e){
 	for (int i = 0; i < e->numSimbolos; i++) {

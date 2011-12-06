@@ -15,10 +15,15 @@
 #include "stacktoken.h"
 
 #define MAX_LABEL 50
+#define MAX_COMANDO 60
 
 Escopo* escopoAtual;
 Expressao* expressaoAtual;
-Token* lvalue;
+Token* lvalue; // Para guardar a variável da atribuição
+Token* varUltimaExp; // Para guardar a variável temporária da expressão
+                       // da última expressao calculada
+Token* tempComp; // Variável temporária da comparação
+Token* opcomp; // Guarda o token do operador de comparação
 
 char* getEmptyString(int length) {
     char* s = (char*)malloc(length*sizeof(char));
@@ -30,6 +35,95 @@ char* getEmptyString(int length) {
     return s;
 }
 
+void escreve(char* comando) {
+    printf("%s\n", comando);
+}
+
+void INICIO() {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "@ /000");
+    escreve(comando);
+    free(comando);
+}
+
+void JN(char* labelTo, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s JN %s", label, labelTo);
+    escreve(comando);
+    free(comando);
+}
+
+void JZ(char* labelTo, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s JZ %s", label, labelTo);
+    escreve(comando);
+    free(comando);
+}
+
+void JP(char* labelTo, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s JP %s", label, labelTo);
+    escreve(comando);
+    free(comando);
+}
+
+void LV(int i, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s LV /%x", label, i);
+    escreve(comando);
+    free(comando);
+}
+
+void MM(char* labelTo, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s MM %s", label, labelTo);
+    escreve(comando);
+    free(comando);
+}
+
+void OS(char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s OS /0", label);
+    escreve(comando);
+    free(comando);
+}
+
+void MINUS(char* operando, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s - %s", label, operando);
+    escreve(comando);
+    free(comando);
+}
+
+void LD(char* labelFrom, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s LD %s", label, labelFrom);
+    escreve(comando);
+    free(comando);
+}
+
+void HM(char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s HM /0", label);
+    escreve(comando);
+    free(comando);
+}
+
+void K(int valor, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s K /%X", label, valor);
+    escreve(comando);
+    free(comando);
+}
+
+void FIM() {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "#main");
+    escreve(comando);
+    free(comando);
+}
+
+// Retorna o label/valor da variável temporária
 char* criaVariavelTemporaria() {
     char* label = getEmptyString(MAX_LABEL);
     strcat(label, "TEMP");
@@ -41,7 +135,6 @@ char* criaVariavelTemporaria() {
     
     contaTemp++;
     
-    // Retorna o número da variável temporária
     return label;
 }
 
@@ -72,9 +165,15 @@ void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
     
     char* labelTopo = recuperaLabel(topo);
     char* labelAbaixo = recuperaLabel(abaixo);
-    printf("LD %s\n", labelAbaixo);
-    printf("%s %s\n", operador->valor, labelTopo);
-    printf("MM %s\n", labelTemp);
+    
+    LD(labelAbaixo, "");
+    
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s %s", operador->valor, labelTopo);
+    escreve(comando);
+    free(comando);
+    
+    MM(labelTemp, "");
     
     Token* t = (Token*) malloc(sizeof(Token));
     t->tipo = ID;
@@ -83,9 +182,82 @@ void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
     StackTokenPush(&pilhaOperandos, t);
 }
 
+// O parâmetro i determina qual dos labels será gerado
+// i < 0 : comp_false_<contaComp>
+// i = 0 : fim_comp_<contaComp>
+// i > 0 : comp_true_<contaComp>
+char* labelComparacao(int i) {
+    char* label = getEmptyString(MAX_LABEL);
+    char* idx = getEmptyString(5);
+    sprintf(idx, "%d", contaComp);
+    
+    if(i < 0) {
+        strcat(label, "comp_false_");
+    } else if(i > 0) {
+        strcat(label, "comp_true_");
+    } else {
+        strcat(label, "fim_comp_");
+    }
+    
+    strcat(label, idx);
+    free(idx);
+    
+    return label;
+}
+
+void geraComparacaoMaior() {
+    char* labelFalse = labelComparacao(-1);
+    char* labelTrue = labelComparacao(1);
+    char* labelFim = labelComparacao(0);
+    
+    JN(labelTrue, "");
+    LV(0, labelFalse);
+    JP(labelFim, "");
+    LV(1, labelTrue);
+    OS(labelFim);
+    
+//    free(labelFalse);
+//    free(labelTrue);
+//    free(labelFim);
+    
+}
+
+void geraComparacaoMenor() {
+    char* labelFalse = labelComparacao(-1);
+    char* labelTrue = labelComparacao(1);
+    char* labelFim = labelComparacao(0);
+    
+    JZ(labelFalse, "");
+    JN(labelFalse, "");
+    LV(1, labelTrue);
+    JP(labelFim, "");
+    LV(0, labelFalse);
+    OS(labelFim);
+    
+//    free(labelFalse);
+//    free(labelTrue);
+//    free(labelFim);
+}
+
+void geraComparacaoIgual() {
+    char* labelFalse = labelComparacao(-1);
+    char* labelTrue = labelComparacao(1);
+    char* labelFim = labelComparacao(0);
+    
+    JZ(labelTrue, "");
+    LV(0, labelFalse);
+    JP(labelFim, "");
+    LV(1, labelTrue);
+    OS(labelFim);
+    
+//    free(labelFalse);
+//    free(labelTrue);
+//    free(labelFim);
+}
+
 void geraCodigoLoad(Token* var) {
     char* labelOperando = recuperaLabel(var);
-    printf("LD %s\n", labelOperando);
+    LD(labelOperando, "");
 }
 
 void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
@@ -104,7 +276,11 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         return;
     }
     
-    if(a == PROGRAM_MAIN) {
+    if(a == CABECALHO){
+        INICIO();
+        JP("main", "");
+        
+    } else if(a == PROGRAM_MAIN) {
         // Leu a primeira linha do main
         Escopo* mainScope = (Escopo*) malloc(sizeof(Escopo));
         initEscopo(mainScope);
@@ -116,11 +292,11 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         escopos.tamanho++;
         
         escopoAtual = mainScope;
-        printf("main OS /0\n");
+        OS("main");
         
     } else if(a == PROGRAM_END_MAIN) {
         // Terminou o main
-        printf("HM /0\n");
+        HM("");
         
     } else if(a == VARIAVEL_NA_TABELA) {
         
@@ -146,7 +322,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char idx[4];
         sprintf(idx, "%d", contaIfs);
         strcat(label, idx);
-        printf("%s OS /0\n", label);
+        OS(label);
                 
         // Cria escopo interno
         Escopo* internoIf = (Escopo*)malloc(sizeof(Escopo));
@@ -177,7 +353,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char idx[4];
         sprintf(idx, "%d", idIf);
         strcat(label, idx);
-        printf("JZ %s\n", label);
+        JZ(label, "");
         free(label);
     } else if(a == TERMINA_IF) {
         stackElementT idIf = StackPop(&pilhaIfs);
@@ -187,7 +363,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char idx[4];
         sprintf(idx, "%d", idIf);
         strcat(label, idx);
-        printf("%s OS /0\n", label); // fim_if_<id>
+        OS(label);
         free(label);
         
         // Volta ao escopo anterior
@@ -205,7 +381,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char idx[4];
         sprintf(idx, "%d", ifId);
         strcat(label, idx);
-        printf("JP %s\n", label);
+        JP(label, "");
         free(label);
                 
         
@@ -214,7 +390,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         strcat(label, "fim_if_");
         sprintf(idx, "%d", ifId);
         strcat(label, idx);
-        printf("%s OS /0\n", label); // fim_if_<id>
+        OS(label);
         free(label);
         
         label = getEmptyString(MAX_LABEL);
@@ -244,7 +420,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char idx[4];
         sprintf(idx, "%d", elseId);
         strcat(label, idx);
-        printf("%s OS /0\n", label);
+        OS(label);
         free(label);
         
         // Volta ao escopo anterior
@@ -257,7 +433,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char idx[4];
         sprintf(idx, "%d", contaWhiles);
         strcat(label, idx);
-        printf("%s OS /0\n", label);
+        OS(label);
         
         // Cria escopo interno
         Escopo* internoWhile = (Escopo*)malloc(sizeof(Escopo));
@@ -269,6 +445,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         strcat(nomeEscopo, label);
         internoWhile->nome = nomeEscopo;
         insereEscopoInterno(escopoAtual, internoWhile);
+        free(label);
         
         // Muda o escopo atual
         escopoAtual = internoWhile;
@@ -284,7 +461,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char idx[4];
         sprintf(idx, "%d", idWhile);
         strcat(label, idx);
-        printf("JZ %s\n", label);
+        JZ(label, "");
         free(label);
 
     } else if(a == TERMINA_WHILE) {
@@ -295,7 +472,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char idx[4];
         sprintf(idx, "%d", idWhile);
         strcat(label, idx);
-        printf("JP %s\n", label);
+        JP(label, "");
         free(label);
         
         label = getEmptyString(MAX_LABEL);
@@ -303,7 +480,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         idx[0] = idx[1] = idx[2] = idx[3] = '\0';
         sprintf(idx, "%d", idWhile);
         strcat(label, idx);
-        printf("%s OS /0\n", label);
+        OS(label);
         free(label);
         
         // Volta ao escopo anterior
@@ -385,12 +562,20 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
                 geraCodigoOperacao(topo, abaixo, operador);
             }
             
-            // Ao final haverá ainda uma variável temporária
-            // na pilha. Deve-se desempilhá-la
-            StackTokenPop(&pilhaOperandos);
         } else if(!StackTokenIsEmpty(&pilhaOperandos)) {
-            geraCodigoLoad(StackTokenPop(&pilhaOperandos));
+            Token* temp = StackTokenPop(&pilhaOperandos);
+            StackTokenPush(&pilhaOperandos, temp);
+            geraCodigoLoad(temp);
         }
+        
+        // Ao final haverá ainda uma variável (temporária ou não(caso a=b ou ainda a>b, a<b, a==b))
+        // na pilha. Guarda-se-a em varUltimaExp
+        Token* temp = StackTokenPop(&pilhaOperandos);
+//        if(varUltimaExp != 0) free(varUltimaExp); // Deleta a variável anterior
+        varUltimaExp = (Token*) malloc(sizeof(Token));
+        varUltimaExp->tipo = ID;
+        strcpy(varUltimaExp->valor, temp->valor);
+
     } else if(a == GUARDA_LVALUE) {
         lvalue = (Token*) malloc(sizeof(Token));
         lvalue->coluna  = t->coluna;
@@ -401,24 +586,50 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
             lvalue->valor[i] = '\0';
         }
         
-        strcat(lvalue->valor, t->valor);
+        strcpy(lvalue->valor, t->valor);
     } else if(a == REALIZA_ATRIBUICAO) {
         char* label = recuperaLabel(lvalue);
         
-        printf("MM %s\n", label);
-        free(lvalue);
+        MM(label, "");
+//        free(lvalue);
+    } else if(a == GUARDA_TIPO_COMP) {
+//        if(opcomp != 0) free(opcomp);
+        opcomp = (Token*) malloc(sizeof(Token));
+        opcomp->tipo = ID;
+        strcpy(opcomp->valor, t->valor);
+        
+        // Guarda na memória a última expressão
+        char* label = criaVariavelTemporaria();
+        MM(label, "");
+        tempComp = (Token*) malloc(sizeof(Token));
+        tempComp->tipo = ID;
+        strcpy(tempComp->valor, label);
+        
+//        free(label);
+        
+    } else if(a == REALIZA_COMPARACAO) {
+        MINUS(tempComp->valor, "");
+        
+        if(!strcmp(opcomp->valor, ">")) {
+            geraComparacaoMaior();
+            
+        } else if(!strcmp(opcomp->valor, "<")) {
+            geraComparacaoMenor();
+            
+        } else if(!strcmp(opcomp->valor, "==")) {
+            geraComparacaoIgual();
+            
+        }
+        
+        contaComp++;
+//        free(opcomp);
     }
 }
 
-AcaoSemantica decidirAcaoSemantica(Estado anterior, Estado atual) {
-    if(atual == REST_COMANDO_ATR_2_AC) {
-        int a;
-        a = 1+4;
-    }
-    
+AcaoSemantica decidirAcaoSemantica(Estado anterior, Estado atual) {    
     int i;
     for(i = 0; i < NUMRELACOES; ++i) {
-        if((relacoes[i].anterior == anterior || relacoes[i].anterior == QUALQUER_ESTADO) && relacoes[i].atual == atual) {
+        if((relacoes[i].anterior == anterior || relacoes[i].anterior == QUALQUER_ESTADO) && (relacoes[i].atual == atual || relacoes[i].atual == QUALQUER_ESTADO)) {
             return relacoes[i].a;
         }
     }
@@ -435,7 +646,7 @@ void declararVC(Escopo* e) {
     }
     
     for(i = 0; i < e->numSimbolos; ++i) {
-        printf("%s K /000\n", e->simbolos[i].label);
+        K(0, e->simbolos[i].label);
     }
 }
 
@@ -446,6 +657,10 @@ void declararVariaveisConstantes() {
     }
     
     for(i = 0; i < constTab.tamanho; ++i) {
-        printf("%s K /%X\n", constTab.constantes[i]->label, constTab.constantes[i]->valor);
+        K(constTab.constantes[i]->valor, constTab.constantes[i]->label);
     }
+}
+
+void imprimeFim() {
+    FIM();
 }

@@ -38,6 +38,7 @@ static int contaWhiles = 0;
 static int contaIfs = 0;
 static int contaExp = 0;
 static int contaTemp = 0;
+static int contaComp = 0;
 
 stackT pilhaIfs;
 stackT pilhaElses;
@@ -51,6 +52,7 @@ stackT pilhaExpressoes;
 void executarAcaoSemantica(Estado anterior, Estado atual, Token* t);
 AcaoSemantica decidirAcaoSemantica(Estado e, Estado atual);
 void declararVariaveisConstantes();
+void imprimeFim();
 
 
 
@@ -63,6 +65,9 @@ typedef struct {
 } EstadoAcao;
 
 static EstadoAcao relacoes[] = {
+    
+    {QUALQUER_ESTADO, PROGRAM_INICIAL, CABECALHO},
+    
 //  {ATUAL, ANTERIOR, ACAO_SEMANTICA}
     {PROGRAM_5, PROGRAM_4, PROGRAM_MAIN},
     {PROGRAM_6_AC, PROGRAM_5, PROGRAM_END_MAIN},
@@ -118,9 +123,13 @@ static EstadoAcao relacoes[] = {
     {CONDICAO_2, CONDICAO_1_AC, EMPILHA_OPERADOR_COND},
     
     // Caso receba "*"
-    {TERMO_COND_INICIAL, TERMO_COND_1_AC, EMPILHA_OPERADOR_PRIORIDADE_COND}
+    {TERMO_COND_INICIAL, TERMO_COND_1_AC, EMPILHA_OPERADOR_PRIORIDADE_COND},
     
     // Na comparação
+    {COMPARACAO_2, COMPARACAO_1, GUARDA_TIPO_COMP},
+    
+    // Caso fim da comparação, desempilha o estado
+    {FATOR_COND_2_AC, COMPARACAO_3_AC, REALIZA_COMPARACAO}
     
     // Caso fim da condicao, quando desempilha o estado
     ////////////////////////////////////////////////////////

@@ -39,6 +39,13 @@ typedef struct _Escopo {
     char* nome;
 } Escopo;
 
+typedef struct {
+    char* vars[MAX_SIMBOLOS];
+    int tamanho;
+} TabelaVarTemp;
+
+void adicionarVarTemp(char* label, TabelaVarTemp* t);
+
 void initEscopo(Escopo* e);
 void insereEscopoInterno(Escopo* e, Escopo* interno);
 
