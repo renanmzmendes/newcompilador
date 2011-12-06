@@ -11,6 +11,7 @@
 #define MAX_SIZE 50
 
 int main() {
+    
 	Token *token;
 	token = (Token*) malloc(sizeof(Token));
     
@@ -85,6 +86,7 @@ int main() {
     
     // Dump das variáveis e constantes no fim do programa
     declararVariaveisConstantes();
+    imprimeFim();
 	
     free(token);
 	return 0;

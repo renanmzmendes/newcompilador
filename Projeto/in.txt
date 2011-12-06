@@ -1,4 +1,12 @@
 main()
-	int a
-	a = (1 + a / 2 + 7)
+	int fat
+	int n
+	
+	fat = 4
+	n = fat
+	
+	while(n > 0)
+		fat = fat * n
+		n = n - 1
+	end
 end
