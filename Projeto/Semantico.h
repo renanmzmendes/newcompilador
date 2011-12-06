@@ -105,7 +105,24 @@ static EstadoAcao relacoes[] = {
     
     //////////////////// ATRIBUICAO ////////////////////////
     {ATR_OU_CHAMADA_1, ATR_OU_CHAMADA_INICIAL, GUARDA_LVALUE},
+    
+    // Fim da atribuição, quando desempilha o estado
     {ATR_OU_CHAMADA_2_AC, REST_COMANDO_ATR_2_AC, REALIZA_ATRIBUICAO},
+    ////////////////////////////////////////////////////////
+    
+    //////////////////// CONDICAO //////////////////////////
+    // Caso receba um boolean ou id
+    {FATOR_COND_2_AC, FATOR_COND_INICIAL, EMPILHA_OPERANDO_COND},
+    
+    // Caso receba "|"
+    {CONDICAO_2, CONDICAO_1_AC, EMPILHA_OPERADOR_COND},
+    
+    // Caso receba "*"
+    {TERMO_COND_INICIAL, TERMO_COND_1_AC, EMPILHA_OPERADOR_PRIORIDADE_COND}
+    
+    // Na comparação
+    
+    // Caso fim da condicao, quando desempilha o estado
     ////////////////////////////////////////////////////////
 };
 

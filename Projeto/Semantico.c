@@ -387,7 +387,9 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
             
             // Ao final haverá ainda uma variável temporária
             // na pilha. Deve-se desempilhá-la
-            StackPop(&pilhaOperandos);
+            StackTokenPop(&pilhaOperandos);
+        } else if(!StackTokenIsEmpty(&pilhaOperandos)) {
+            geraCodigoLoad(StackTokenPop(&pilhaOperandos));
         }
     } else if(a == GUARDA_LVALUE) {
         lvalue = (Token*) malloc(sizeof(Token));
