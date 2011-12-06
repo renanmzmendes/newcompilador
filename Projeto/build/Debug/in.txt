@@ -1,0 +1,12 @@
+main()
+	int fat
+	int n
+	int m
+	int j
+	fat = 4
+	n = fat
+	while(n > 0)
+		fat = fat * n
+		n = n - 1
+	end
+end
