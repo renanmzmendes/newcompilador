@@ -81,7 +81,14 @@ void insereEscopoInterno(Escopo* e, Escopo* interno){
 
 void adicionarSimbolo(Tipo t, char* nome, char* label, Escopo* e){
 	e->simbolos[e->numSimbolos].tipo = t;
-	e->simbolos[e->numSimbolos].nome = nome;
+    char* n = (char*) malloc(sizeof(char)*50);
+    int i;
+    for(i = 0; i < 50; ++i) {
+        n[i] = '\0';
+    }
+    
+    strcpy(n, nome);
+	e->simbolos[e->numSimbolos].nome = n;
 	e->simbolos[e->numSimbolos].label = label;
     e->numSimbolos++;	
 }

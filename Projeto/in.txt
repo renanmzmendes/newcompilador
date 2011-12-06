@@ -1,12 +1,20 @@
 main()
-	int fat
-	int n
+	int a
+	int b
 	
-	fat = 4
-	n = fat
+	a = 2*7 + 4
+	b = a / 3
 	
-	while(n > 0)
-		fat = fat * n
-		n = n - 1
+	while(b + 8*a > a + 1)
+		int c
+		c = 5
+		b = c + c / 5 + 9/c/1
+	end
+	
+	if(a > b + 1)
+		int inte
+		inte = a + b
+	else
+		
 	end
 end

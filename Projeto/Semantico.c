@@ -131,7 +131,7 @@ char* criaVariavelTemporaria() {
     sprintf(idx, "%d", contaTemp);
     strcat(label, idx);
     adicionarSimbolo(ID, label, label, escopoAtual);
-    free(idx);
+//    free(idx);
     
     contaTemp++;
     
@@ -373,7 +373,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         // Desempilha if
         stackElementT ifId = StackPop(&pilhaIfs);
         
-        // Empilha else
+        // Empilha else com mesmo id
         StackPush(&pilhaElses, ifId);
         
         char* label = getEmptyString(MAX_LABEL);
@@ -571,7 +571,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         // Ao final haverá ainda uma variável (temporária ou não(caso a=b ou ainda a>b, a<b, a==b))
         // na pilha. Guarda-se-a em varUltimaExp
         Token* temp = StackTokenPop(&pilhaOperandos);
-//        if(varUltimaExp != 0) free(varUltimaExp); // Deleta a variável anterior
+        if(varUltimaExp != 0) free(varUltimaExp); // Deleta a variável anterior
         varUltimaExp = (Token*) malloc(sizeof(Token));
         varUltimaExp->tipo = ID;
         strcpy(varUltimaExp->valor, temp->valor);
@@ -591,9 +591,9 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char* label = recuperaLabel(lvalue);
         
         MM(label, "");
-//        free(lvalue);
+        free(lvalue);
     } else if(a == GUARDA_TIPO_COMP) {
-//        if(opcomp != 0) free(opcomp);
+        if(opcomp != 0) free(opcomp);
         opcomp = (Token*) malloc(sizeof(Token));
         opcomp->tipo = ID;
         strcpy(opcomp->valor, t->valor);
@@ -604,7 +604,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         tempComp = (Token*) malloc(sizeof(Token));
         tempComp->tipo = ID;
         strcpy(tempComp->valor, label);
-        
+
 //        free(label);
         
     } else if(a == REALIZA_COMPARACAO) {
@@ -622,7 +622,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         }
         
         contaComp++;
-//        free(opcomp);
+        free(opcomp);
     }
 }
 
