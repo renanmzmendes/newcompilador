@@ -30,6 +30,21 @@ char* getEmptyString(int length) {
     return s;
 }
 
+char* criaVariavelTemporaria() {
+    char* label = getEmptyString(MAX_LABEL);
+    strcat(label, "TEMP");
+    char* idx = getEmptyString(5);
+    sprintf(idx, "%d", contaTemp);
+    strcat(label, idx);
+    adicionarSimbolo(ID, label, label, escopoAtual);
+    free(idx);
+    
+    contaTemp++;
+    
+    // Retorna o número da variável temporária
+    return label;
+}
+
 char* recuperaLabel(Token* t) {
     char* label;
     if(t->tipo == NUM) {
@@ -50,9 +65,22 @@ char* recuperaLabel(Token* t) {
     return label;
 }
 
-void geraCodigoOperacao(Token* operando, Token* operador) {
-    char* labelOperando = recuperaLabel(operando);
-    printf("%s %s\n", operador->valor, labelOperando);
+// Gera código da operação e 
+void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
+    // Cria variável temporária
+    char* labelTemp = criaVariavelTemporaria();
+    
+    char* labelTopo = recuperaLabel(topo);
+    char* labelAbaixo = recuperaLabel(abaixo);
+    printf("LD %s\n", labelAbaixo);
+    printf("%s %s\n", operador->valor, labelTopo);
+    printf("MM %s\n", labelTemp);
+    
+    Token* t = (Token*) malloc(sizeof(Token));
+    t->tipo = ID;
+    strcpy(t->valor, labelTemp);
+    
+    StackTokenPush(&pilhaOperandos, t);
 }
 
 void geraCodigoLoad(Token* var) {
@@ -282,66 +310,72 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         escopoAtual = escopoAtual->anterior;
     } else if(a == EMPILHA_OPERANDO) {
         StackTokenPush(&pilhaOperandos, t);
-        // Verifica se o operador passado era de
-        // multiplicacao ou divisao. Se for o caso
-        // faz a conta de uma vez
+        
+    } else if(a == EMPILHA_OPERADOR) {
+        // Verifica se o topo da pilha contém 
+        // algum operador do tipo +, -, * ou /
         Token* operador = 0;
         if(!StackTokenIsEmpty(&pilhaOperadores)) {
             operador = StackTokenPop(&pilhaOperadores);
+            StackTokenPush(&pilhaOperadores, operador);
+        }
+        
+        if(operador != 0) {
+            if(!strcmp(operador->valor, "*") || !strcmp(operador->valor, "/") ||
+               !strcmp(operador->valor, "+") || !strcmp(operador->valor, "-")) {
+                // Executa a operação determinada pelo operador do topo da pilha
+                Token* topo = 0;
+                Token* abaixo = 0;
+                
+                while(!StackTokenIsEmpty(&pilhaOperadores)) {
+                    topo     = StackTokenPop(&pilhaOperandos);
+                    abaixo   = StackTokenPop(&pilhaOperandos);
+                    operador = StackTokenPop(&pilhaOperadores);
+                    
+                    // Gera o código da operação e coloca a variável
+                    // temporária criada na pilha de operandos
+                    geraCodigoOperacao(topo, abaixo, operador);
+                }
+                
+            } else {
+                StackTokenPush(&pilhaOperadores, t);
+            }
+        } else {
+            StackTokenPush(&pilhaOperadores, t);
+        }
+        
+        
+    } else if(a == EMPILHA_OPERADOR_PRIORIDADE) {
+        // Verifica se o topo da pilha contém
+        // algum operador do tipo * ou /
+        Token* operador = 0;
+        if(!StackTokenIsEmpty(&pilhaOperadores)) {
+            operador = StackTokenPop(&pilhaOperadores);
+            StackTokenPush(&pilhaOperadores, operador);
         }
         
         if(operador != 0) {
             if(!strcmp(operador->valor, "*") || !strcmp(operador->valor, "/")) {
-                Token* ultimo = StackTokenPop(&pilhaOperandos);
-                Token* penult = StackTokenPop(&pilhaOperandos);
+                // Executa a operação determinada pelo operador do topo da pilha
+                Token* topo = 0;
+                Token* abaixo = 0;
                 
-                char* label = recuperaLabel(penult);
-                printf("LD %s\n", label);
-                
-                geraCodigoOperacao(ultimo, operador);
+                while(!StackTokenIsEmpty(&pilhaOperadores)) {
+                    topo     = StackTokenPop(&pilhaOperandos);
+                    abaixo   = StackTokenPop(&pilhaOperandos);
+                    operador = StackTokenPop(&pilhaOperadores);
+                    
+                    // Gera o código da operação e coloca a variável
+                    // temporária criada na pilha de operandos
+                    geraCodigoOperacao(topo, abaixo, operador);
+                }
             } else {
-                // Devolve o operador para a pilha
-                StackTokenPush(&pilhaOperadores, operador);
+                StackTokenPush(&pilhaOperadores, t);
             }
-        }
-        
-    } else if(a == EMPILHA_OPERADOR) {
-        StackTokenPush(&pilhaOperadores, t);
-    } else if(a == RESOLVE_EXPRESSAO) {
-        StackTokenPush(&pilhaOperadores, t);
-        // Desempilha o id da expressao
-        //StackPop(&pilhaExpressoes);
-        
-        // Desempilha imediatamente o parentese que fecha
-        StackTokenPop(&pilhaOperadores);
-        if(pilhaOperadores.top == pilhaOperandos.top) {
-            Token* ultimo = StackTokenPop(&pilhaOperandos);
-            geraCodigoLoad(ultimo);
-        }
-        
-        Token* operador = StackTokenPop(&pilhaOperadores);
-        while(strcmp(operador->valor, "(")) {
-            // Escreve o codigo para efetuar a operacao
-            geraCodigoOperacao(StackTokenPop(&pilhaOperandos), operador);
-            operador = StackTokenPop(&pilhaOperadores);
-        }
-        
-        char* label = getEmptyString(MAX_LABEL);
-        char* id = getEmptyString(5);
-        strcat(label, "TEMP");
-        sprintf(id, "%d", contaExp);
-        strcat(label, id);
-        printf("MM %s\n", label);
-        
-        if(!existeSimbolo(label, escopoAtual)) {
-            // Adiciona simbolo aqui para poder ser declarado
-            // na parte final do programa
-            adicionarSimbolo(INT, label, label, escopoAtual);
         } else {
-            printf("Ja havia uma variavel %s. Verificar.", label);
-            getchar();
-            exit(1);
+            StackTokenPush(&pilhaOperadores, t);
         }
+        
     } else if(a == GUARDA_LVALUE) {
         lvalue = (Token*) malloc(sizeof(Token));
         lvalue->coluna  = t->coluna;

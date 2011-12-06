@@ -28,7 +28,7 @@ int main() {
     StackInit(&pilhaExpressoes, MAX_SIZE);
         
 	FILE *entrada;
-    entrada = fopen("/Users/renanmzmendes/compilador/Projeto/in.txt", "r");
+    entrada = fopen("/Users/renanmzmendes/newcompilador/Projeto/in.txt", "r");
     //verificando se arquivo existe
     if(entrada == NULL) {
         printf("arquivo nao encontrado\n\n");

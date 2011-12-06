@@ -37,6 +37,7 @@ TabelaConstantes constTab;
 static int contaWhiles = 0;
 static int contaIfs = 0;
 static int contaExp = 0;
+static int contaTemp = 0;
 
 stackT pilhaIfs;
 stackT pilhaElses;
@@ -75,17 +76,26 @@ static EstadoAcao relacoes[] = {
     {COMANDO_ITER_5, COMANDO_ITER_4, APOS_CONDICAO_WHILE},
     {COMANDO_ITER_6_AC, COMANDO_ITER_5, TERMINA_WHILE},
     
-    // OK
+    
+    ////////////////// EXPRESSOES //////////////////////////
+    // Caso receba um número ou id
     {FATOR_2_AC, FATOR_INICIAL, EMPILHA_OPERANDO},
     {FATOR_1_AC, FATOR_INICIAL, EMPILHA_OPERANDO},
-    {FATOR_3, FATOR_INICIAL, EMPILHA_OPERADOR},
     
+    // Caso receba um "("
+    // {FATOR_3, FATOR_INICIAL, EMPILHA_OPERADOR},
+    
+    // Caso receba um "*" ou "/"
+    {TERMO_INICIAL, TERMO_1_AC, EMPILHA_OPERADOR_PRIORIDADE},
+    
+    // Caso receba um "+" ou "-"
+    {EXPR_INICIAL, EXPR_1_AC, EMPILHA_OPERADOR},
+    ////////////////////////////////////////////////////////
+    
+    //////////////////// ATRIBUICAO ////////////////////////
     {ATR_OU_CHAMADA_1, ATR_OU_CHAMADA_INICIAL, GUARDA_LVALUE},
     {REST_COMANDO_ATR_2_AC, QUALQUER_ESTADO, REALIZA_ATRIBUICAO},
-    
-    {FATOR_2_AC, FATOR_4, RESOLVE_EXPRESSAO},
-    {TERMO_INICIAL, TERMO_1_AC, EMPILHA_OPERADOR},
-    {EXPR_INICIAL, EXPR_1_AC, EMPILHA_OPERADOR}    
+    ////////////////////////////////////////////////////////
 };
 
 #define NUMRELACOES (sizeof(relacoes)/sizeof(*relacoes))
