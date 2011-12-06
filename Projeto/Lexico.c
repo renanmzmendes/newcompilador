@@ -73,12 +73,12 @@ void criarTabelaDeEstados(){
 		else if (valorASCII== '\377'){
 			TabelaLexica[estado][valorASCII] = Fim_de_Arquivo;
 		}
-		
+        
 		else{ 
 			TabelaLexica[estado][valorASCII] = Erro_Lexico ;
 		}
 	}
-	
+    
 	estado=1;
 	for (valorASCII=0; valorASCII<=255; valorASCII++) {
 		if (valorASCII >= 'a' && valorASCII<= 'z' || 
@@ -90,7 +90,7 @@ void criarTabelaDeEstados(){
 			TabelaLexica[estado][valorASCII] = Terminal_IDENT ;
 		}		
 	}
-	
+    
 	estado=2;
 	for (valorASCII=0; valorASCII<=255; valorASCII++) {
 		if (valorASCII >= '0' && valorASCII <= '9'){
@@ -103,7 +103,7 @@ void criarTabelaDeEstados(){
 			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
 		}		
 	}
-	
+    
 	estado=3;
 	for (valorASCII=0; valorASCII<=255; valorASCII++) {
 		if (valorASCII == '.' ){
@@ -113,7 +113,7 @@ void criarTabelaDeEstados(){
 			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
 		}		
 	}
-	
+    
 	estado=4;
 	for (valorASCII=0; valorASCII<=255; valorASCII++) {
 		if (valorASCII >= '0' && valorASCII <= '9'){
@@ -123,7 +123,7 @@ void criarTabelaDeEstados(){
 			TabelaLexica[estado][valorASCII] = Erro_Lexico;
 		}		
 	}
-	
+    
 	estado=5;
 	for (valorASCII=0; valorASCII<=255; valorASCII++) {
 		if (valorASCII >= '0' && valorASCII <= '9'){
@@ -133,7 +133,7 @@ void criarTabelaDeEstados(){
 			TabelaLexica[estado][valorASCII] = Terminal_NUM ;
 		}		
 	}
-	
+    
 	estado=6;
 	for (valorASCII=0; valorASCII<=255; valorASCII++) {
 		if (valorASCII != '"' ){
@@ -143,7 +143,7 @@ void criarTabelaDeEstados(){
 			TabelaLexica[estado][valorASCII] = Terminal_STRING ;
 		}		
 	}
-	
+    
 	estado=7;
 	for (valorASCII=0; valorASCII<=255; valorASCII++) {
 		if (valorASCII == '=' ){
@@ -162,7 +162,7 @@ Token *getNextToken(FILE *inputFile){
 	}
 	int estado_Atual = 0;
 	char BufferLexema[256] = {};
-	
+    
 	// descartando os espaços e tabs
 	while (ch == ' ' || ch == '\t') {
 		ch = getc(inputFile);
@@ -177,7 +177,7 @@ Token *getNextToken(FILE *inputFile){
 		linha++;
 		coluna=0;
 	}
-	
+    
 	//Grava o caractere lido no Buffer do Lexema e calcula o próximo estado
 	// sempre que a função getNextToken for chamada o ch estará 
 	// apontando para o primeiro caractere do próximo token
@@ -188,7 +188,7 @@ Token *getNextToken(FILE *inputFile){
     } else {
         estado_Atual = TabelaLexica[estado_Atual][ch];
     }
-	
+    
 	while (estado_Atual >= 0) {
 		ch = getc(inputFile);
 		coluna++;
@@ -199,7 +199,7 @@ Token *getNextToken(FILE *inputFile){
 			estado_Atual = TabelaLexica[estado_Atual][ch];
 		}
 	} 
-	
+    
 	// após encontrar estado terminal ajusta o BufferLexema e o caracter lido de 
 	// acordo com o terminal alcançado. Em alguns casos o último caracter lido é
 	// o ultimo caracter do token atual, em outros casos o último caractere lido é
@@ -220,7 +220,7 @@ Token *getNextToken(FILE *inputFile){
 		coluna=0;
 		linha++;
 	}	
-	
+    
 	return criarToken(BufferLexema, estado_Atual, linha, coluna - strlen(BufferLexema));
 }
 

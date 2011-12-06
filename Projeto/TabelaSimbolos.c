@@ -99,7 +99,8 @@ void adicionarVarTemp(char* label, TabelaVarTemp* t) {
 }
 
 int existeSimbolo(char* nome, Escopo* e){
-	for (int i = 0; i < e->numSimbolos; i++) {
+    int i;
+	for (i = 0; i < e->numSimbolos; i++) {
 		if (!strcmp(e->simbolos[i].nome, nome)) {
 			return 1;
 		}
