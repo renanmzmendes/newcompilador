@@ -774,7 +774,7 @@ void escreveFuncoesMvn() {
     //    o programa já faz os comandos GD /0 e grava
     //    o valor na variável correspondente (MM <label da variavel>)
     //    Lembre que a sintaxe para comando de entrada é
-    //    "input a" para gravar o input na variável "a"
+    //    "input a" para gravar o input na variável a"
 	
 	OS("input");
 	
