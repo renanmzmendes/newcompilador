@@ -46,12 +46,10 @@ typedef enum {
     REALIZA_ATRIBUICAO,
     
     REALIZA_COMPARACAO,
-    GUARDA_TIPO_COMP
+    GUARDA_TIPO_COMP,
     
-//    ACRESCENTA_OPERANDO_OPERADOR,
-//    EMPILHAR_NOVA_EXPRESSAO,
-//    TRADUZIR_EXPRESSAO
-    
+    OUTPUT,
+    INPUT
 } AcaoSemantica;
 
 #endif

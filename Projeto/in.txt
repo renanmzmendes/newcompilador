@@ -1,20 +1,5 @@
 main()
 	int a
-	int b
-	
-	a = 2*7 + 4
-	b = a / 3
-	
-	while(b + 8*a > a + 1)
-		int c
-		c = 5
-		b = c + c / 5 + 9/c/1
-	end
-	
-	if(a > b + 1)
-		int inte
-		inte = a + b
-	else
-		
-	end
+	output a
+	input a
 end

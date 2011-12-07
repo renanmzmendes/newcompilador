@@ -116,6 +116,21 @@ void K(int valor, char* label) {
     free(comando);
 }
 
+void GD(char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s GD /0", label);
+    escreve(comando);
+    free(comando);
+}
+
+void SC(char* subrotina, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s SC %s", label, subrotina);
+    escreve(comando);
+    free(comando);
+}
+
+
 void FIM() {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "#main");
@@ -623,6 +638,14 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         
         contaComp++;
         free(opcomp);
+    } else if(a == OUTPUT) {
+        SC("output", "");
+        
+    } else if(a == INPUT) {
+        char* labelVar = recuperaLabel(t);
+        GD("");
+        MM(labelVar, "");
+        SC("input", "");
     }
 }
 
@@ -659,6 +682,32 @@ void declararVariaveisConstantes() {
     for(i = 0; i < constTab.tamanho; ++i) {
         K(constTab.constantes[i]->valor, constTab.constantes[i]->label);
     }
+}
+
+void escreveFuncoesMvn() {
+    // Paquita do meu coração: é aqui que vc vai
+    // escrever essa gambiarra que vc tem a pachorra
+    // de chamar de função...
+    // Use para os comandos as funções que eu criei nesse
+    // arquivo mesmo, como LD, LV, OS, JP, JN, etc...
+    
+    // OUTPUT
+    // Instruções:
+    // 1. A variável já vai estar no acumulador quando
+    //    a subrotina for chamada
+    // 2. A subroutine call (SC) é feita para o label
+    //    "output"
+
+    
+    // INPUT
+    // Instruções:
+    // 1. Antes de fazer a chamada de subrotina (SC)
+    //    o programa já faz os comandos GD /0 e grava
+    //    o valor na variável correspondente (MM <label da variavel>)
+    //    Lembre que a sintaxe para comando de entrada é
+    //    "input a" para gravar o input na variável a
+    
+    
 }
 
 void imprimeFim() {

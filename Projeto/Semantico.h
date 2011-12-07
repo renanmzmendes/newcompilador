@@ -52,6 +52,7 @@ stackT pilhaExpressoes;
 void executarAcaoSemantica(Estado anterior, Estado atual, Token* t);
 AcaoSemantica decidirAcaoSemantica(Estado e, Estado atual);
 void declararVariaveisConstantes();
+void escreveFuncoesMvn();
 void imprimeFim();
 
 
@@ -129,10 +130,16 @@ static EstadoAcao relacoes[] = {
     {COMPARACAO_2, COMPARACAO_1, GUARDA_TIPO_COMP},
     
     // Caso fim da comparação, desempilha o estado
-    {FATOR_COND_2_AC, COMPARACAO_3_AC, REALIZA_COMPARACAO}
+    {FATOR_COND_2_AC, COMPARACAO_3_AC, REALIZA_COMPARACAO},
     
     // Caso fim da condicao, quando desempilha o estado
     ////////////////////////////////////////////////////////
+    
+    ///////////////////// OUTPUT //////////////////////////
+    {COMANDO_1_AC, COMANDO_SAIDA_2_AC, OUTPUT},
+    
+    ///////////////////// INPUT ///////////////////////////
+    {LISTA_MEM_1_AC, LISTA_MEM_INICIAL, INPUT}
 };
 
 #define NUMRELACOES (sizeof(relacoes)/sizeof(*relacoes))

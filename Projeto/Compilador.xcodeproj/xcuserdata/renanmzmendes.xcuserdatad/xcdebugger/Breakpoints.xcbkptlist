@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891090.856208"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "580"
-         endingLineNumber = "580"
+         startingLineNumber = "595"
+         endingLineNumber = "595"
          landmarkName = "executarAcaoSemantica()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891090.856208"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "591"
-         endingLineNumber = "591"
+         startingLineNumber = "606"
+         endingLineNumber = "606"
          landmarkName = "executarAcaoSemantica()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891090.856208"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "613"
-         endingLineNumber = "613"
+         startingLineNumber = "628"
+         endingLineNumber = "628"
          landmarkName = "executarAcaoSemantica()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -65,11 +65,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891090.856208"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "596"
-         endingLineNumber = "596"
+         startingLineNumber = "611"
+         endingLineNumber = "611"
          landmarkName = "executarAcaoSemantica()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -79,11 +79,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891090.856208"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "603"
-         endingLineNumber = "603"
+         startingLineNumber = "618"
+         endingLineNumber = "618"
          landmarkName = "executarAcaoSemantica()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -93,11 +93,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "main.c"
-         timestampString = "344891500.918085"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "89"
-         endingLineNumber = "89"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "main()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -107,11 +107,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891090.856208"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "133"
-         endingLineNumber = "133"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "criaVariavelTemporaria()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -135,11 +135,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891090.856208"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "562"
-         endingLineNumber = "562"
+         startingLineNumber = "577"
+         endingLineNumber = "577"
          landmarkName = "executarAcaoSemantica()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891090.856208"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
          landmarkName = "criaVariavelTemporaria()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -191,11 +191,25 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Semantico.c"
-         timestampString = "344891148.824769"
+         timestampString = "344919862.053975"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "280"
-         endingLineNumber = "280"
+         startingLineNumber = "295"
+         endingLineNumber = "295"
+         landmarkName = "executarAcaoSemantica()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Semantico.c"
+         timestampString = "344919955.079058"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "645"
+         endingLineNumber = "645"
          landmarkName = "executarAcaoSemantica()"
          landmarkType = "7">
       </FileBreakpoint>
