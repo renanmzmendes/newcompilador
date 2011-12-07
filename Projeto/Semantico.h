@@ -16,6 +16,7 @@
 #include "stack.h"
 #include "stackexp.h"
 #include "stacktoken.h"
+#include "stdio.h"
 
 #define MAX_ESCOPOS 50
 #define MAX_TOKENS 50
@@ -39,6 +40,7 @@ static int contaIfs = 0;
 static int contaExp = 0;
 static int contaTemp = 0;
 static int contaComp = 0;
+FILE* out;
 
 stackT pilhaIfs;
 stackT pilhaElses;

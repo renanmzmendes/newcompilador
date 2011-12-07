@@ -37,6 +37,7 @@ char* getEmptyString(int length) {
 
 void escreve(char* comando) {
     printf("%s\n", comando);
+    fprintf(out, "%s\n", comando);
 }
 
 void INICIO() {
@@ -103,7 +104,7 @@ void MINUS(char* operando, char* label) {
 }
 
 void PLUS(char* operando, char* label) {
-    char* comando = getEmptyString(MAX_COMANDO);			// NOVO
+    char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "%s + %s", label, operando);
     escreve(comando);
     free(comando);
@@ -111,14 +112,14 @@ void PLUS(char* operando, char* label) {
 
 void MULT(char* operando, char* label) {
     char* comando = getEmptyString(MAX_COMANDO);
-    sprintf(comando, "%s * %s", label, operando);			// NOVO
+    sprintf(comando, "%s * %s", label, operando);
     escreve(comando);
     free(comando);
 }
 
 void DIV(char* operando, char* label) {
     char* comando = getEmptyString(MAX_COMANDO);
-    sprintf(comando, "%s / %s", label, operando);			// NOVO
+    sprintf(comando, "%s / %s", label, operando);
     escreve(comando);
     free(comando);
 }
@@ -153,7 +154,7 @@ void GD(char* label) {
 
 void PD(char* label) {
     char* comando = getEmptyString(MAX_COMANDO);
-    sprintf(comando, "%s PD /1", label);						//NOVO
+    sprintf(comando, "%s PD /1", label);
     escreve(comando);
     free(comando);
 }
@@ -678,9 +679,9 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         
     } else if(a == INPUT) {
         char* labelVar = recuperaLabel(t);
-        GD("");
-        MM(labelVar, "");
+
         SC("input", "");
+        MM(labelVar, "");
     }
 }
 
@@ -719,21 +720,13 @@ void declararVariaveisConstantes() {
     }
 }
 
-void escreveFuncoesMvn() {
-    // Paquita do meu coração: é aqui que vc vai
-    // escrever essa gambiarra que vc tem a pachorra
-    // de chamar de função...
-    // Use para os comandos as funções que eu criei nesse
-    // arquivo mesmo, como LD, LV, OS, JP, JN, etc...
-    
+void escreveFuncoesMvn() {    
     // OUTPUT
     // Instruções:
     // 1. A variável já vai estar no acumulador quando
     //    a subrotina for chamada
     // 2. A subroutine call (SC) é feita para o label
     //    "output"
-	
-	//criei umas funções que não existiam pra imprimir, outras eu simplesmente dei printf ilustrativamenete
 	
 	OS("output");
 	MM("NUM", "");
@@ -774,9 +767,6 @@ void escreveFuncoesMvn() {
 	JP("w1", "");
 	OS("fw0");
 	RS("output", "");
-	// Paaaarla
-	
-	
 	
     // INPUT
     // Instruções:
@@ -784,14 +774,7 @@ void escreveFuncoesMvn() {
     //    o programa já faz os comandos GD /0 e grava
     //    o valor na variável correspondente (MM <label da variavel>)
     //    Lembre que a sintaxe para comando de entrada é
-    //    "input a" para gravar o input na variável a
-    
-
-	
-	// deixa o GD dentro.
-	// o MM é depois do input
-	
-	// se for pra chamar subrotina então vou por frescura 
+    //    "input a" para gravar o input na variável "a"
 	
 	OS("input");
 	

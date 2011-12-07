@@ -35,6 +35,9 @@ int main() {
         printf("arquivo nao encontrado\n\n");
         return 1;
     }
+    
+    // Abre o arquivo de saída
+    out = fopen("/Users/renanmzmendes/newcompilador/Projeto/out.txt", "wr");
 	
 	InicializaLexico();
 
