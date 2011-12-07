@@ -1,7 +1,6 @@
 main()
 	int fat
 	int n
-	input n
 	int m
 	int j
 	fat = 4
@@ -12,3 +11,8 @@ main()
 	end
 	output fat
 end
+
+		
+
+
+	

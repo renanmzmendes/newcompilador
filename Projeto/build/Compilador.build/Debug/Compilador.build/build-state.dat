@@ -1,18 +1,18 @@
 TCompilador
 v7
 r0
-t344902010.351806
+t344928253.130600
 cCheck dependencies
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/main.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Token.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Token.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Lexico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Lexico.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stack.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stack.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Sintatico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Sintatico.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/TabelaSimbolos.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelaSimbolos.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stackexp.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stackexp.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stacktoken.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stacktoken.c" normal x86_64 c com.apple.compilers.gcc.4_2
-cLd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/Compilador" normal x86_64
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/main.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Token.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Token.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Lexico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Lexico.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stack.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stack.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Sintatico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Sintatico.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/TabelaSimbolos.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/TabelaSimbolos.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stackexp.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stackexp.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stacktoken.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stacktoken.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cLd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug/Compilador" normal x86_64
 
 N/Developer/SDKs/MacOSX10.6.sdk
 c000000004CAA740B00000000000000EE
@@ -38,6 +38,216 @@ N/Developer/SDKs/MacOSX10.6.sdk/usr/include/string.h
 c000000004BBD2CE90000000000001731
 t1270689001
 s5937
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/ConstantesSemantico.h
+c000000004EDEDD7C00000000000003C2
+t1323228540
+s962
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/ConstantesSintatico.h
+c000000004EDEDD7C0000000000000DB9
+t1323228540
+s3513
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Lexico.c
+c000000004EDEDD7C0000000000001880
+t1323228540
+s6272
+i<stdio.h>
+i<stdlib.h>
+i<ctype.h>
+i<string.h>
+i"Lexico.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Lexico.h
+c000000004EDEDD7C000000000000014A
+t1323228540
+s330
+i"stdio.h"
+i"Token.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.c
+c000000004EDEF9230000000000005ACD
+t1323235619
+s23245
+i"stdio.h"
+i"Semantico.h"
+i"TabelaSimbolos.h"
+i"Token.h"
+i"stdlib.h"
+i"string.h"
+i"stacktoken.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.h
+c000000004EDEDD7C000000000000112B
+t1323228540
+s4395
+i"TabelaSimbolos.h"
+i"ConstantesSintatico.h"
+i"ConstantesSemantico.h"
+i"Token.h"
+i"stack.h"
+i"stackexp.h"
+i"stacktoken.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Sintatico.c
+c000000004EDEDD7C0000000000000B43
+t1323228540
+s2883
+i"Sintatico.h"
+i"TabelasSintatico.h"
+i"string.h"
+i"stdlib.h"
+i"stdio.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Sintatico.h
+c000000004EDEDD7C000000000000022E
+t1323228540
+s558
+i"Token.h"
+i"TabelasSintatico.h"
+i"stack.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/TabelaSimbolos.c
+c000000004EDEDD7C0000000000000A2F
+t1323228540
+s2607
+i"TabelaSimbolos.h"
+i"string.h"
+i"stdlib.h"
+i"stdio.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/TabelaSimbolos.h
+c000000004EDEDD7C0000000000000498
+t1323228540
+s1176
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/TabelasSintatico.h
+c000000004EDEDD7C00000000000042EB
+t1323228540
+s17131
+i"Token.h"
+i"ConstantesSintatico.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Token.c
+c000000004EDEDD7C00000000000008BB
+t1323228540
+s2235
+i<stdio.h>
+i<stdlib.h>
+i<string.h>
+i"Token.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Token.h
+c000000004EDEDD7C0000000000000372
+t1323228540
+s882
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Compilador.LinkFileList
+c000000004EDEE181000000000000059E
+t1323229569
+s1438
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Lexico.o
+t1323228540
+s10504
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o
+t1323235413
+s46332
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Sintatico.o
+t1323228540
+s17228
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/TabelaSimbolos.o
+t1323228540
+s8952
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Token.o
+t1323228540
+s6568
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/main.o
+t1323228540
+s19752
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stack.o
+t1323228540
+s6724
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stackexp.o
+t1323228540
+s7740
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stacktoken.o
+t1323228540
+s7224
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug/Compilador
+t1323235413
+s58104
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/main.c
+c000000004EDEDD7C0000000000000C6B
+t1323228540
+s3179
+i<stdio.h>
+i<stdlib.h>
+i"Lexico.h"
+i"Sintatico.h"
+i"ConstantesSintatico.h"
+i"ConstantesSemantico.h"
+i"TabelasSintatico.h"
+i"Semantico.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stack.c
+c000000004EDEDD7C00000000000007FB
+t1323228540
+s2043
+i"stack.h"
+i<stdio.h>
+i<stdlib.h>
+i"stack.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stack.h
+c000000004EDEDD7C00000000000003CD
+t1323228540
+s973
+i<stdio.h>
+i<stdlib.h>
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stackexp.c
+c000000004EDEDD7C00000000000007FA
+t1323228540
+s2042
+i<stdio.h>
+i<stdlib.h>
+i"stackexp.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stackexp.h
+c000000004EDEDD7C000000000000054D
+t1323228540
+s1357
+i<stdio.h>
+i<stdlib.h>
+i"Token.h"
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stacktoken.c
+c000000004EDEDD7C000000000000083A
+t1323228540
+s2106
+i"stacktoken.h"
+i<stdio.h>
+i<stdlib.h>
+
+N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stacktoken.h
+c000000004EDEDD7C00000000000004C2
+t1323228540
+s1218
+i<stdio.h>
+i<stdlib.h>
+i"Token.h"
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/ConstantesSemantico.h
 c000000004EDE8264000000000000040C
@@ -251,7 +461,10 @@ i"Token.h"
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies344902010#344902010#0(0"0(0#1#0"8616337408#0"0#
+lSLF07#2@18"Check dependencies344928253#344928253#0(0"0(0#1#0"8621657984#0"0#
+
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Lexico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Lexico.c" normal x86_64 c com.apple.compilers.gcc.4_2
+r0
 
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Lexico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Lexico.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344901951.423679
@@ -265,6 +478,20 @@ xx86_64
 xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@111"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Lexico.c344901951#344901951#0(0"0(0#0#103"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Lexico.c8614128384#1966"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Lexico.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Lexico.o"0#
+
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.c" normal x86_64 c com.apple.compilers.gcc.4_2
+s344928213.643517
+e344928213.770790
+r1
+xCompileC
+xbuild/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o
+x/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+o/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.h:39: warning: 'contaExp' defined but not used
+lSLF07#2@100"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.c344928213#344928213#0(138"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.h:39: warning: 'contaExp' defined but not used1(22@31"'contaExp' defined but not used344928213#0#138#0(6@92"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.h344921340#39#0#39#0#24"'*' defined but not used0(0#0#92"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.c8621853824#1818"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o"0#
 
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344898587.493199
@@ -280,6 +507,9 @@ xcom.apple.compilers.gcc.4_2
 o/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h:39: warning: 'contaExp' defined but not used
 lSLF07#2@114"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.c344898587#344898587#0(152"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h:39: warning: 'contaExp' defined but not used1(22@31"'contaExp' defined but not used344898587#0#152#0(6@106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h344898020#39#0#39#0#24"'*' defined but not used0(0#0#106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.c8603703744#1972"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o"0#
 
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Sintatico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Sintatico.c" normal x86_64 c com.apple.compilers.gcc.4_2
+r0
+
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Sintatico.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Sintatico.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344898587.428935
 e344898587.493095
@@ -292,6 +522,9 @@ xx86_64
 xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@114"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Sintatico.c344898587#344898587#0(0"0(0#0#106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Sintatico.c3828182194881589248#1972"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Sintatico.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Sintatico.o"0#
+
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/TabelaSimbolos.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/TabelaSimbolos.c" normal x86_64 c com.apple.compilers.gcc.4_2
+r0
 
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/TabelaSimbolos.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelaSimbolos.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344898587.461056
@@ -306,6 +539,9 @@ xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@119"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelaSimbolos.c344898587#344898587#0(0"0(0#0#111"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelaSimbolos.c8604234432#1982"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelaSimbolos.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/TabelaSimbolos.o"0#
 
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Token.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Token.c" normal x86_64 c com.apple.compilers.gcc.4_2
+r0
+
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Token.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Token.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344898587.272920
 e344898587.367219
@@ -318,6 +554,9 @@ xx86_64
 xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@110"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Token.c344898587#344898587#0(0"0(0#0#102"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Token.c8601243392#1964"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Token.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Token.o"0#
+
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/main.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
+r0
 
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/main.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344898614.035852
@@ -332,6 +571,9 @@ xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@109"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/main.c344898614#344898614#0(1238"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelasSintatico.h:23: warning: 'transicoes' defined but not used/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelasSintatico.h:200: warning: 'chamadas' defined but not used/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h:37: warning: 'contaWhiles' defined but not used/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h:38: warning: 'contaIfs' defined but not used/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h:39: warning: 'contaExp' defined but not used/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h:40: warning: 'contaTemp' defined but not used/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h:41: warning: 'contaComp' defined but not used/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h:67: warning: 'relacoes' defined but not used8(22@33"'transicoes' defined but not used344898614#0#161#0(6@113"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelasSintatico.h344898020#23#0#23#0#24"'*' defined but not used0(22@31"'chamadas' defined but not used344898614#161#160#0(6@113"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelasSintatico.h344898020#200#0#200#0#24"'*' defined but not used0(22@34"'contaWhiles' defined but not used344898614#321#155#0(6@106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h344898020#37#0#37#0#24"'*' defined but not used0(22@31"'contaIfs' defined but not used344898614#476#152#0(6@106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h344898020#38#0#38#0#24"'*' defined but not used0(22@31"'contaExp' defined but not used344898614#628#152#0(6@106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h344898020#39#0#39#0#24"'*' defined but not used0(22@32"'contaTemp' defined but not used344898614#780#153#0(6@106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h344898020#40#0#40#0#24"'*' defined but not used0(22@32"'contaComp' defined but not used344898614#933#153#0(6@106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h344898020#41#0#41#0#24"'*' defined but not used0(22@31"'relacoes' defined but not used344898614#1086#152#0(6@106"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.h344898020#67#0#67#0#24"'*' defined but not used0(0#0#101"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/main.c8603978656#1962"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/main.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/main.o"0#
 
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stack.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stack.c" normal x86_64 c com.apple.compilers.gcc.4_2
+r0
+
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stack.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stack.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344898587.367297
 e344898587.428839
@@ -344,6 +586,9 @@ xx86_64
 xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@110"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stack.c344898587#344898587#0(0"0(0#0#102"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stack.c8602961792#1964"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stack.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stack.o"0#
+
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stackexp.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stackexp.c" normal x86_64 c com.apple.compilers.gcc.4_2
+r0
 
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stackexp.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stackexp.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344898587.530268
@@ -358,6 +603,9 @@ xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@113"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stackexp.c344898587#344898587#0(0"0(0#0#105"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stackexp.c8606111392#1970"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stackexp.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stackexp.o"0#
 
+CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stacktoken.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/stacktoken.c" normal x86_64 c com.apple.compilers.gcc.4_2
+r0
+
 CCompileC build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stacktoken.o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stacktoken.c" normal x86_64 c com.apple.compilers.gcc.4_2
 s344898587.575906
 e344898587.628870
@@ -370,6 +618,16 @@ xx86_64
 xc
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@115"Compile /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stacktoken.c344898587#344898587#0(0"0(0#0#107"/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stacktoken.c8604164672#1974"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-generated-files.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-own-target-headers.hmap" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-all-target-headers.hmap" -iquote "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Compilador-project-headers.hmap" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/include" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources/x86_64" "-I/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/DerivedSources" -c "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/stacktoken.c" -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stacktoken.o"0#
+
+CLd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug/Compilador" normal x86_64
+s344928213.770886
+e344928213.790898
+r1
+xLd
+x/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug/Compilador
+xnormal
+xx86_64
+lSLF07#2@108"Link /Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug/Compilador344928213#344928213#0(0"0(0#0#0"8621693376#730"    cd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk "-L/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug" "-F/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug" -filelist "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Compilador.LinkFileList" -mmacosx-version-min=10.6 -o "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/build/Debug/Compilador"0#
 
 CLd "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/Compilador" normal x86_64
 s344901951.493207

@@ -67,6 +67,13 @@ void JP(char* labelTo, char* label) {
     free(comando);
 }
 
+void RS(char* labelTo, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s RS %s", label, labelTo);
+    escreve(comando);
+    free(comando);
+}
+
 void LV(int i, char* label) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "%s LV /%x", label, i);
@@ -95,6 +102,27 @@ void MINUS(char* operando, char* label) {
     free(comando);
 }
 
+void PLUS(char* operando, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);			// NOVO
+    sprintf(comando, "%s + %s", label, operando);
+    escreve(comando);
+    free(comando);
+}
+
+void MULT(char* operando, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s * %s", label, operando);			// NOVO
+    escreve(comando);
+    free(comando);
+}
+
+void DIV(char* operando, char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s / %s", label, operando);			// NOVO
+    escreve(comando);
+    free(comando);
+}
+
 void LD(char* labelFrom, char* label) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "%s LD %s", label, labelFrom);
@@ -119,6 +147,13 @@ void K(int valor, char* label) {
 void GD(char* label) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "%s GD /0", label);
+    escreve(comando);
+    free(comando);
+}
+
+void PD(char* label) {
+    char* comando = getEmptyString(MAX_COMANDO);
+    sprintf(comando, "%s PD /1", label);						//NOVO
     escreve(comando);
     free(comando);
 }
@@ -697,8 +732,52 @@ void escreveFuncoesMvn() {
     //    a subrotina for chamada
     // 2. A subroutine call (SC) é feita para o label
     //    "output"
-
-    
+	
+	//criei umas funções que não existiam pra imprimir, outras eu simplesmente dei printf ilustrativamenete
+	
+	OS("output");
+	MM("NUM", "");
+	LD("NUM", "");
+	OS("w");
+	JZ("fim_w", "");
+	DIV("Ka", "");
+	MM("NUM_PROX", "");
+	MULT("Ka", "");			// multiplica por Ka
+	MM("NUM_TEMP", "");
+	LD("K9K", "");			// K9K deve existir
+	PLUS("SP", "");
+	PLUS("SP_INICIO", "");
+	MM("EMPILHA", "");
+	LD("SP", "");
+	PLUS("K2", "");
+	MM("SP", "");
+	LD("NUM", "");
+	MINUS("NUM_TEMP", "");
+	OS("EMPILHA");
+	LD("NUM_PROX", "");
+	MM("NUM", "");
+	JP("w", "");
+	OS("fim_w");
+	OS("w1");
+	LD("SP", "");
+	JZ("fw0", "");
+	LD("SP", "");
+	MINUS("K2", "");
+	MM("SP", "");
+	LD("K8K", "");
+	PLUS("SP", "");
+	PLUS("SP_INICIO", "");
+	MM("Des", "");
+	OS("Des");
+	PLUS("K30", "");
+	PD("");
+	JP("w1", "");
+	OS("fw0");
+	RS("output", "");
+	// Paaaarla
+	
+	
+	
     // INPUT
     // Instruções:
     // 1. Antes de fazer a chamada de subrotina (SC)
@@ -707,7 +786,51 @@ void escreveFuncoesMvn() {
     //    Lembre que a sintaxe para comando de entrada é
     //    "input a" para gravar o input na variável a
     
+
+	
+	// deixa o GD dentro.
+	// o MM é depois do input
+	
+	// se for pra chamar subrotina então vou por frescura 
+	
+	OS("input");
+	
+	// 0-8 >
+	LV(48, "");
+	PD("");
+	LV(45, "");
+	PD("");
+	LV(56, "");
+	PD("");
+	LV(62, "");
+	PD("");
+	LV(32, "");
+	PD("");
+	
+	GD("");
+	DIV("K100", "");
+	MINUS("K30", "");
+	RS("input", "");
     
+	
+	//Constantes e variáveis utilizadas e nescessárias
+	/*
+	 para o output
+	 NUM		K /9d85
+	 NUM_PROX	K /000
+	 NUM_TEMP	K /000
+	 SP			K /0000
+	 SP_INICIO	K /0F00
+	 K2			K /2
+	 Ka			K /A
+	 K9K		K /9000
+	 K8K		K /8000
+	 
+	 para o input
+	 K100		K /100
+	 K30		K /30	 
+	 */
+	
 }
 
 void imprimeFim() {
