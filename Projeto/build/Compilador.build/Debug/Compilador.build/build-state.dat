@@ -50,9 +50,9 @@ t1323205220
 s3513
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Lexico.c
-c000000004EDE91BF000000000000185F
-t1323209151
-s6239
+c000000004EDEA67E0000000000001880
+t1323214462
+s6272
 i<stdio.h>
 i<stdlib.h>
 i<ctype.h>
@@ -67,9 +67,9 @@ i"stdio.h"
 i"Token.h"
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/Semantico.c
-c000000004EDE82640000000000004C55
-t1323205220
-s19541
+c000000004EDE977A0000000000004C54
+t1323210618
+s19540
 i"stdio.h"
 i"Semantico.h"
 i"TabelaSimbolos.h"
@@ -109,9 +109,9 @@ i"TabelasSintatico.h"
 i"stack.h"
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/TabelaSimbolos.c
-c000000004EDE8264000000000000099E
-t1323205220
-s2462
+c000000004EDEA67E0000000000000A2F
+t1323214462
+s2607
 i"TabelaSimbolos.h"
 i"string.h"
 i"stdlib.h"
@@ -144,53 +144,53 @@ t1323205220
 s882
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Compilador.LinkFileList
-c000000004EDE849B000000000000061C
-t1323205787
+c000000004EDE977C000000000000061C
+t1323210620
 s1564
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Lexico.o
-t1323209151
+t1323210620
 s10504
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Semantico.o
-t1323205787
+t1323210620
 s39180
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Sintatico.o
-t1323205787
+t1323210620
 s17228
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/TabelaSimbolos.o
-t1323205787
+t1323210620
 s8952
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/Token.o
-t1323205787
+t1323210620
 s6568
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/main.o
-t1323205811
+t1323210620
 s19752
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stack.o
-t1323205787
+t1323210620
 s6724
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stackexp.o
-t1323205787
+t1323210620
 s7740
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Compilador.build/Debug/Compilador.build/Objects-normal/x86_64/stacktoken.o
-t1323205787
+t1323210620
 s7224
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/build/Debug/Compilador
-t1323209151
+t1323210620
 s53304
 
 N/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/newcompilador/Projeto/main.c
-c000000004EDE84B30000000000000C26
-t1323205811
+c000000004EDE977C0000000000000C26
+t1323210620
 s3110
 i<stdio.h>
 i<stdlib.h>
