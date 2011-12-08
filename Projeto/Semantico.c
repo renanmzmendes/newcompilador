@@ -14,8 +14,8 @@
 #include "string.h"
 #include "stacktoken.h"
 
-#define MAX_LABEL 50
-#define MAX_COMANDO 60
+#define MAX_LABEL 100
+#define MAX_COMANDO 120
 
 Escopo* escopoAtual;
 Expressao* expressaoAtual;
@@ -154,7 +154,7 @@ void GD(char* label) {
 
 void PD(char* label) {
     char* comando = getEmptyString(MAX_COMANDO);
-    sprintf(comando, "%s PD /1", label);
+    sprintf(comando, "%s PD /100", label);
     escreve(comando);
     free(comando);
 }
@@ -222,7 +222,7 @@ void geraCodigoOperacao(Token* topo, Token* abaixo, Token* operador) {
     char* comando = getEmptyString(MAX_COMANDO);
     sprintf(comando, "%s %s", operador->valor, labelTopo);
     escreve(comando);
-    free(comando);
+//    free(comando);
     
     MM(labelTemp, "");
     
@@ -251,7 +251,7 @@ char* labelComparacao(int i) {
     }
     
     strcat(label, idx);
-    free(idx);
+//    free(idx);
     
     return label;
 }
@@ -386,7 +386,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         internoIf->nome = nomeEscopo;
         insereEscopoInterno(escopoAtual, internoIf);
         
-        free(label);
+//        free(label);
         
         // Muda o escopo atual
         escopoAtual = internoIf;
@@ -405,7 +405,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         sprintf(idx, "%d", idIf);
         strcat(label, idx);
         JZ(label, "");
-        free(label);
+//        free(label);
     } else if(a == TERMINA_IF) {
         stackElementT idIf = StackPop(&pilhaIfs);
         
@@ -415,7 +415,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         sprintf(idx, "%d", idIf);
         strcat(label, idx);
         OS(label);
-        free(label);
+//        free(label);
         
         // Volta ao escopo anterior
         escopoAtual = escopoAtual->anterior;
@@ -433,7 +433,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         sprintf(idx, "%d", ifId);
         strcat(label, idx);
         JP(label, "");
-        free(label);
+//        free(label);
                 
         
         label = getEmptyString(MAX_LABEL);
@@ -442,7 +442,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         sprintf(idx, "%d", ifId);
         strcat(label, idx);
         OS(label);
-        free(label);
+//        free(label);
         
         label = getEmptyString(MAX_LABEL);
         strcat(label, "else_");
@@ -459,7 +459,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         internoElse->nome = nomeEscopo;
         insereEscopoInterno(escopoAtual, internoElse);
         internoElse->anterior = escopoAtual;
-        free(label);
+//        free(label);
         
         // Muda o escopo atual
         escopoAtual = internoElse;
@@ -472,7 +472,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         sprintf(idx, "%d", elseId);
         strcat(label, idx);
         OS(label);
-        free(label);
+//        free(label);
         
         // Volta ao escopo anterior
         escopoAtual = escopoAtual->anterior;
@@ -496,7 +496,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         strcat(nomeEscopo, label);
         internoWhile->nome = nomeEscopo;
         insereEscopoInterno(escopoAtual, internoWhile);
-        free(label);
+//        free(label);
         
         // Muda o escopo atual
         escopoAtual = internoWhile;
@@ -513,7 +513,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         sprintf(idx, "%d", idWhile);
         strcat(label, idx);
         JZ(label, "");
-        free(label);
+//        free(label);
 
     } else if(a == TERMINA_WHILE) {
         stackElementT idWhile = StackPop(&pilhaWhiles);
@@ -524,7 +524,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         sprintf(idx, "%d", idWhile);
         strcat(label, idx);
         JP(label, "");
-        free(label);
+//        free(label);
         
         label = getEmptyString(MAX_LABEL);
         strcat(label, "fim_while_");
@@ -532,7 +532,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         sprintf(idx, "%d", idWhile);
         strcat(label, idx);
         OS(label);
-        free(label);
+//        free(label);
         
         // Volta ao escopo anterior
         escopoAtual = escopoAtual->anterior;
@@ -622,7 +622,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         // Ao final haverá ainda uma variável (temporária ou não(caso a=b ou ainda a>b, a<b, a==b))
         // na pilha. Guarda-se-a em varUltimaExp
         Token* temp = StackTokenPop(&pilhaOperandos);
-        if(varUltimaExp != 0) free(varUltimaExp); // Deleta a variável anterior
+//        if(varUltimaExp != 0) free(varUltimaExp); // Deleta a variável anterior
         varUltimaExp = (Token*) malloc(sizeof(Token));
         varUltimaExp->tipo = ID;
         strcpy(varUltimaExp->valor, temp->valor);
@@ -642,7 +642,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         char* label = recuperaLabel(lvalue);
         
         MM(label, "");
-        free(lvalue);
+//        free(lvalue);
     } else if(a == GUARDA_TIPO_COMP) {
         if(opcomp != 0) free(opcomp);
         opcomp = (Token*) malloc(sizeof(Token));
@@ -673,7 +673,7 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         }
         
         contaComp++;
-        free(opcomp);
+        //free(opcomp);
     } else if(a == OUTPUT) {
         SC("output", "");
         

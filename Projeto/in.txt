@@ -1,6 +1,19 @@
 main()
-	int a
-	a = 9000
-	input a
-	output a
+
+	int fat
+	int n
+	
+	input fat
+	n = fat - 1
+	if(fat == 0)
+		output 1
+	else
+		while(n > 0)
+			fat = fat * n
+			n = n - 1
+		end
+		
+		output fat
+	end
+
 end
