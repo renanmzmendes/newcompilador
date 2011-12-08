@@ -343,6 +343,9 @@ void executarAcaoSemantica(Estado anterior, Estado atual, Token* t) {
         escopos.tamanho++;
         
         escopoAtual = mainScope;
+        escreve(";*******************************");
+        escreve("; Programa                      ");
+        escreve(";*******************************");
         OS("main");
         
     } else if(a == PROGRAM_END_MAIN) {
@@ -727,6 +730,11 @@ void escreveFuncoesMvn() {
     //    a subrotina for chamada
     // 2. A subroutine call (SC) é feita para o label
     //    "output"
+    
+    escreve(";*******************************");
+    escreve("; Subrotinas da MVN             ");
+    escreve(";*******************************");
+
 	
 	OS("output");
 	MM("NUM", "");
@@ -794,6 +802,10 @@ void escreveFuncoesMvn() {
 	DIV("K256", "");
 	MINUS("K48", "");
 	RS("input", "");
+    
+    escreve(";*******************************");
+    escreve("; Area de variaveis e constantes");
+    escreve(";*******************************");
     
     insereConstante(0x100, &constTab);
     insereConstante(0x30, &constTab);
