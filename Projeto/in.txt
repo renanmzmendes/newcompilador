@@ -1,5 +1,6 @@
 main()
 	int a
+	a = 9000
 	input a
 	output a
 end

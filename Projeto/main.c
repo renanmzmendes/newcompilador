@@ -88,8 +88,8 @@ int main() {
 	}
     
     // Dump das variáveis e constantes no fim do programa
-    declararVariaveisConstantes();
     escreveFuncoesMvn();
+    declararVariaveisConstantes();
     imprimeFim();
 	
     free(token);

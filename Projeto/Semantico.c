@@ -169,7 +169,7 @@ void SC(char* subrotina, char* label) {
 
 void FIM() {
     char* comando = getEmptyString(MAX_COMANDO);
-    sprintf(comando, "#main");
+    sprintf(comando, "# main");
     escreve(comando);
     free(comando);
 }
@@ -762,7 +762,7 @@ void escreveFuncoesMvn() {
 	PLUS("SP_INICIO", "");
 	MM("Des", "");
 	OS("Des");
-	PLUS("K30", "");
+	PLUS("K48", "");
 	PD("");
 	JP("w1", "");
 	OS("fw0");
@@ -791,15 +791,17 @@ void escreveFuncoesMvn() {
 	PD("");
 	
 	GD("");
-	DIV("K100", "");
-	MINUS("K30", "");
+	DIV("K256", "");
+	MINUS("K48", "");
 	RS("input", "");
     
-	
+    insereConstante(0x100, &constTab);
+    insereConstante(0x30, &constTab);
+    insereConstante(2, &constTab);
 	//Constantes e variáveis utilizadas e nescessárias
 	/*
 	 para o output
-	 NUM		K /9d85
+	 NUM		K /000
 	 NUM_PROX	K /000
 	 NUM_TEMP	K /000
 	 SP			K /0000
@@ -817,5 +819,13 @@ void escreveFuncoesMvn() {
 }
 
 void imprimeFim() {
+    escreve("NUM        K /0000");
+    escreve("NUM_PROX   K /0000");
+    escreve("NUM_TEMP   K /0000");
+    escreve("SP         K /0000");
+    escreve("SP_INICIO  K /0F00");
+    escreve("Ka         K /000A");
+    escreve("K9K        K /9000");
+    escreve("K8K        K /8000");
     FIM();
 }
