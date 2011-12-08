@@ -63,20 +63,21 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 344921560;
-			PBXWorkspaceStateSaveDate = 344921560;
+			PBXPerProjectTemplateStateSaveDate = 345036845;
+			PBXWorkspaceStateSaveDate = 345036845;
 		};
 		perUserProjectItems = {
 			F1A08CCB1460729900E3F17F /* PBXTextBookmark */ = F1A08CCB1460729900E3F17F /* PBXTextBookmark */;
 			F1B144F9148EC12A000ED8F7 /* PBXTextBookmark */ = F1B144F9148EC12A000ED8F7 /* PBXTextBookmark */;
 			F1B144FA148EC12A000ED8F7 /* PBXTextBookmark */ = F1B144FA148EC12A000ED8F7 /* PBXTextBookmark */;
 			F1B144FB148EC12A000ED8F7 /* PBXTextBookmark */ = F1B144FB148EC12A000ED8F7 /* PBXTextBookmark */;
-			F1B1450A148EC33B000ED8F7 /* PBXTextBookmark */ = F1B1450A148EC33B000ED8F7 /* PBXTextBookmark */;
 			F1B145D8148F26AE000ED8F7 /* PBXTextBookmark */ = F1B145D8148F26AE000ED8F7 /* PBXTextBookmark */;
-			F1B145D9148F26AE000ED8F7 /* PBXTextBookmark */ = F1B145D9148F26AE000ED8F7 /* PBXTextBookmark */;
-			F1B145E0148F2CC9000ED8F7 /* PBXTextBookmark */ = F1B145E0148F2CC9000ED8F7 /* PBXTextBookmark */;
-			F1B145E1148F2CC9000ED8F7 /* PBXTextBookmark */ = F1B145E1148F2CC9000ED8F7 /* PBXTextBookmark */;
-			F1B145EA148F30BC000ED8F7 /* PBXTextBookmark */ = F1B145EA148F30BC000ED8F7 /* PBXTextBookmark */;
+			F1DD4060149118D6005104C0 /* PBXTextBookmark */ = F1DD4060149118D6005104C0 /* PBXTextBookmark */;
+			F1DD4061149118D6005104C0 /* PBXTextBookmark */ = F1DD4061149118D6005104C0 /* PBXTextBookmark */;
+			F1DD4062149118D6005104C0 /* PBXTextBookmark */ = F1DD4062149118D6005104C0 /* PBXTextBookmark */;
+			F1DD4063149118D6005104C0 /* PBXTextBookmark */ = F1DD4063149118D6005104C0 /* PBXTextBookmark */;
+			F1DD4064149118D6005104C0 /* PBXTextBookmark */ = F1DD4064149118D6005104C0 /* PBXTextBookmark */;
+			F1DD4065149118D6005104C0 /* PBXTextBookmark */ = F1DD4065149118D6005104C0 /* PBXTextBookmark */;
 		};
 		sourceControlManager = F15A5855142E4B4100560AB9 /* Source Control */;
 		userBuildSettings = {
@@ -90,9 +91,16 @@
 	};
 	C15F72BD145DCB1200D3A4F7 /* Sintatico.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1167, 1287}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1167, 1352}}";
+			sepNavSelRange = "{838, 0}";
+			sepNavVisRange = "{78, 1229}";
+		};
+	};
+	C15F72BE145DCB1200D3A4F7 /* Sintatico.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {908, 514}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1059}";
+			sepNavVisRange = "{0, 558}";
 		};
 	};
 	C1709512148ACB6A004FAA64 /* Semantico.c */ = {
@@ -104,9 +112,9 @@
 	};
 	C1709513148ACB6A004FAA64 /* Semantico.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {908, 1911}}";
+			sepNavIntBoundsRect = "{{0, 0}, {908, 1937}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{335, 767}";
+			sepNavVisRange = "{2946, 1466}";
 		};
 	};
 	C1B85513145E1CF60036CA2E /* TabelasSintatico.h */ = {
@@ -197,9 +205,9 @@
 	};
 	F15A5861142E4BBE00560AB9 /* main.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {870, 1222}}";
-			sepNavSelRange = "{1334, 0}";
-			sepNavVisRange = "{2127, 967}";
+			sepNavIntBoundsRect = "{{0, 0}, {908, 1352}}";
+			sepNavSelRange = "{828, 0}";
+			sepNavVisRange = "{334, 1330}";
 			sepNavWindowFrame = "{{15, 85}, {1058, 788}}";
 		};
 	};
@@ -295,16 +303,6 @@
 		vrLen = 330;
 		vrLoc = 0;
 	};
-	F1B1450A148EC33B000ED8F7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F15A5861142E4BBE00560AB9 /* main.c */;
-		name = "main.c: 32";
-		rLen = 0;
-		rLoc = 829;
-		rType = 0;
-		vrLen = 1837;
-		vrLoc = 1072;
-	};
 	F1B145D2148F1C36000ED8F7 /* Semantico.c */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = sourcecode.c.c;
@@ -312,10 +310,9 @@
 		path = "/Users/tiago/Documents/USP/comp COOP/Modulo 5/Compiladores/newcompilador/Projeto/Semantico.c";
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1153, 10816}}";
-			sepNavSelRange = "{20931, 17}";
-			sepNavVisRange = "{20636, 392}";
-			sepNavWindowFrame = "{{15, 85}, {1058, 788}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1153, 10218}}";
+			sepNavSelRange = "{7742, 0}";
+			sepNavVisRange = "{7413, 1096}";
 		};
 	};
 	F1B145D8148F26AE000ED8F7 /* PBXTextBookmark */ = {
@@ -328,41 +325,64 @@
 		vrLen = 1059;
 		vrLoc = 3882;
 	};
-	F1B145D9148F26AE000ED8F7 /* PBXTextBookmark */ = {
+	F1DD4060149118D6005104C0 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = C15F72BD145DCB1200D3A4F7 /* Sintatico.c */;
-		name = "Sintatico.c: 1";
+		fRef = C15F72BE145DCB1200D3A4F7 /* Sintatico.h */;
+		name = "Sintatico.h: 1";
 		rLen = 0;
 		rLoc = 0;
 		rType = 0;
-		vrLen = 1059;
+		vrLen = 558;
 		vrLoc = 0;
 	};
-	F1B145E0148F2CC9000ED8F7 /* PBXTextBookmark */ = {
+	F1DD4061149118D6005104C0 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = C1709513148ACB6A004FAA64 /* Semantico.h */;
 		name = "Semantico.h: 1";
 		rLen = 0;
 		rLoc = 0;
 		rType = 0;
-		vrLen = 767;
-		vrLoc = 335;
+		vrLen = 1466;
+		vrLoc = 2946;
 	};
-	F1B145E1148F2CC9000ED8F7 /* PBXTextBookmark */ = {
+	F1DD4062149118D6005104C0 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = F1B145D2148F1C36000ED8F7 /* Semantico.c */;
-		rLen = 1;
-		rLoc = 37;
-		rType = 1;
-	};
-	F1B145EA148F30BC000ED8F7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = C1709512148ACB6A004FAA64 /* Semantico.c */;
-		name = "Semantico.c: 816";
+		name = "Semantico.c: 319";
 		rLen = 0;
-		rLoc = 22886;
+		rLoc = 7742;
 		rType = 0;
-		vrLen = 925;
-		vrLoc = 0;
+		vrLen = 1096;
+		vrLoc = 7413;
+	};
+	F1DD4063149118D6005104C0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C15F72BD145DCB1200D3A4F7 /* Sintatico.c */;
+		name = "Sintatico.c: 33";
+		rLen = 0;
+		rLoc = 838;
+		rType = 0;
+		vrLen = 1229;
+		vrLoc = 78;
+	};
+	F1DD4064149118D6005104C0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F15A5861142E4BBE00560AB9 /* main.c */;
+		name = "main.c: 58";
+		rLen = 16;
+		rLoc = 1598;
+		rType = 0;
+		vrLen = 1616;
+		vrLoc = 924;
+	};
+	F1DD4065149118D6005104C0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F15A5861142E4BBE00560AB9 /* main.c */;
+		name = "main.c: 32";
+		rLen = 0;
+		rLoc = 828;
+		rType = 0;
+		vrLen = 1330;
+		vrLoc = 334;
 	};
 }

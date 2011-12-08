@@ -29,7 +29,7 @@ int main() {
     StackInit(&pilhaExpressoes, MAX_SIZE);
         
 	FILE *entrada;
-    entrada = fopen("/Users/renanmzmendes/newcompilador/Projeto/in.txt", "r");
+    entrada = fopen("in.txt", "r");
     //verificando se arquivo existe
     if(entrada == NULL) {
         printf("arquivo nao encontrado\n\n");
@@ -37,7 +37,7 @@ int main() {
     }
     
     // Abre o arquivo de saída
-    out = fopen("/Users/renanmzmendes/newcompilador/Projeto/out.txt", "wr");
+    out = fopen("out.txt", "wr");
 	
 	InicializaLexico();
 
