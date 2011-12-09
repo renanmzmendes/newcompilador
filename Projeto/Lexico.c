@@ -32,7 +32,7 @@ static int TabelaLexica[NumEstados][256];
 #include "Lexico.h"
 
 void InicializaLexico(){
-	linha = 0;
+	linha = 1;
 	coluna = 0;
 	criarTabela_De_Caracteres_Especiais();
 	criarTabelaDeEstados();
@@ -210,8 +210,7 @@ Token *getNextToken(FILE *inputFile){
 	}
 	else if(estado_Atual == Terminal_STRING ||  
 			estado_Atual == Terminal_CARACTER_ESPECIAL_2_Digitos ||
-			estado_Atual == Terminal_CARACTER_ESPECIAL ||
-			estado_Atual == Erro_Lexico){
+			estado_Atual == Terminal_CARACTER_ESPECIAL){
 		ch = getc(inputFile);
 		coluna++;
 	}
@@ -219,8 +218,11 @@ Token *getNextToken(FILE *inputFile){
 		ch = getc(inputFile);
 		coluna=0;
 		linha++;
+	}else if (estado_Atual == Erro_Lexico) {
+		printf("ERRO LEXICO - caracter nao reconhecido: %c\nlinha: %d\ncoluna: %d",ch, linha, coluna);
+		exit(1);
 	}	
-    
+	
 	return criarToken(BufferLexema, estado_Atual, linha, coluna - strlen(BufferLexema));
 }
 

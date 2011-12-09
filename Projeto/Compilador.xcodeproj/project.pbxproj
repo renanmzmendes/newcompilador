@@ -11,7 +11,6 @@
 		C15F72BC145DC7A900D3A4F7 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = C15F72BA145DC7A900D3A4F7 /* stack.c */; };
 		C15F72BF145DCB1200D3A4F7 /* Sintatico.c in Sources */ = {isa = PBXBuildFile; fileRef = C15F72BD145DCB1200D3A4F7 /* Sintatico.c */; };
 		C1709514148ACB6A004FAA64 /* Semantico.c in Sources */ = {isa = PBXBuildFile; fileRef = C1709512148ACB6A004FAA64 /* Semantico.c */; };
-		C1B2BE84148C509300DB63B7 /* stackexp.c in Sources */ = {isa = PBXBuildFile; fileRef = C1B2BE82148C509200DB63B7 /* stackexp.c */; };
 		C1B2BE88148C613A00DB63B7 /* stacktoken.c in Sources */ = {isa = PBXBuildFile; fileRef = C1B2BE86148C613900DB63B7 /* stacktoken.c */; };
 		F1271F16144A0FAE00C41553 /* Lexico.c in Sources */ = {isa = PBXBuildFile; fileRef = F1271F15144A0FAE00C41553 /* Lexico.c */; };
 		F1501A10148ABBC200700D6B /* TabelaSimbolos.c in Sources */ = {isa = PBXBuildFile; fileRef = F1501A0F148ABBC200700D6B /* TabelaSimbolos.c */; };
@@ -41,8 +40,6 @@
 		C1709512148ACB6A004FAA64 /* Semantico.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Semantico.c; sourceTree = "<group>"; };
 		C1709513148ACB6A004FAA64 /* Semantico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Semantico.h; sourceTree = "<group>"; };
 		C1709517148ACF92004FAA64 /* ConstantesSemantico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantesSemantico.h; sourceTree = "<group>"; };
-		C1B2BE82148C509200DB63B7 /* stackexp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stackexp.c; sourceTree = "<group>"; };
-		C1B2BE83148C509300DB63B7 /* stackexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stackexp.h; sourceTree = "<group>"; };
 		C1B2BE86148C613900DB63B7 /* stacktoken.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stacktoken.c; sourceTree = "<group>"; };
 		C1B2BE87148C613900DB63B7 /* stacktoken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stacktoken.h; sourceTree = "<group>"; };
 		C1B85511145DE3610036CA2E /* ConstantesSintatico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantesSintatico.h; sourceTree = "<group>"; };
@@ -83,8 +80,6 @@
 			children = (
 				C1B2BE86148C613900DB63B7 /* stacktoken.c */,
 				C1B2BE87148C613900DB63B7 /* stacktoken.h */,
-				C1B2BE82148C509200DB63B7 /* stackexp.c */,
-				C1B2BE83148C509300DB63B7 /* stackexp.h */,
 				F15A5861142E4BBE00560AB9 /* main.c */,
 				F15A58A9142E4F7A00560AB9 /* Token.h */,
 				F15A58AA142E4F7A00560AB9 /* Token.c */,
@@ -178,7 +173,6 @@
 				C15F72BF145DCB1200D3A4F7 /* Sintatico.c in Sources */,
 				F1501A10148ABBC200700D6B /* TabelaSimbolos.c in Sources */,
 				C1709514148ACB6A004FAA64 /* Semantico.c in Sources */,
-				C1B2BE84148C509300DB63B7 /* stackexp.c in Sources */,
 				C1B2BE88148C613A00DB63B7 /* stacktoken.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

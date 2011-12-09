@@ -18,7 +18,6 @@
 #define MAX_COMANDO 120
 
 Escopo* escopoAtual;
-Expressao* expressaoAtual;
 Token* lvalue; // Para guardar a variável da atribuição
 Token* varUltimaExp; // Para guardar a variável temporária da expressão
                        // da última expressao calculada

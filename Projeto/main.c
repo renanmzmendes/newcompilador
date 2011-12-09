@@ -26,7 +26,6 @@ int main() {
     StackInit(&pilhaElses, MAX_SIZE);
     StackTokenInit(&pilhaOperandos, MAX_SIZE);
     StackTokenInit(&pilhaOperadores, MAX_SIZE);
-    StackInit(&pilhaExpressoes, MAX_SIZE);
         
 	FILE *entrada;
     entrada = fopen("in.txt", "r");

@@ -14,7 +14,6 @@
 #include "ConstantesSemantico.h"
 #include "Token.h"
 #include "stack.h"
-#include "stackexp.h"
 #include "stacktoken.h"
 #include "stdio.h"
 
@@ -48,7 +47,6 @@ stackT pilhaWhiles;
 
 stackToken pilhaOperadores;
 stackToken pilhaOperandos;
-stackT pilhaExpressoes;
 
 
 void executarAcaoSemantica(Estado anterior, Estado atual, Token* t);
@@ -120,13 +118,13 @@ static EstadoAcao relacoes[] = {
     
     //////////////////// CONDICAO //////////////////////////
     // Caso receba um boolean ou id
-    {FATOR_COND_2_AC, FATOR_COND_INICIAL, EMPILHA_OPERANDO_COND},
+    //{FATOR_COND_2_AC, FATOR_COND_INICIAL, EMPILHA_OPERANDO_COND},
     
     // Caso receba "|"
-    {CONDICAO_2, CONDICAO_1_AC, EMPILHA_OPERADOR_COND},
+    //{CONDICAO_2, CONDICAO_1_AC, EMPILHA_OPERADOR_COND},
     
     // Caso receba "*"
-    {TERMO_COND_INICIAL, TERMO_COND_1_AC, EMPILHA_OPERADOR_PRIORIDADE_COND},
+    //{TERMO_COND_INICIAL, TERMO_COND_1_AC, EMPILHA_OPERADOR_PRIORIDADE_COND},
     
     // Na comparação
     {COMPARACAO_2, COMPARACAO_1, GUARDA_TIPO_COMP},

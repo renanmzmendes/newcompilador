@@ -44,6 +44,7 @@ typedef struct {
     int tamanho;
 } TabelaVarTemp;
 
+
 void adicionarVarTemp(char* label, TabelaVarTemp* t);
 
 void initEscopo(Escopo* e);
