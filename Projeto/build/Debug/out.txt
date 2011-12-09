@@ -1,3 +1,0 @@
-@ /000
- JP main
-main OS /0

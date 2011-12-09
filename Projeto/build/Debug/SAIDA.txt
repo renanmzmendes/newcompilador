@@ -1,0 +1,133 @@
+@ /000
+ JP main
+;*******************************
+; Programa                      
+;*******************************
+main OS /0
+ SC input
+ MM main_fat
+ LD main_fat
+- K1
+ MM TEMP0
+ MM main_n
+if_0 OS /0
+ LD main_fat
+ MM TEMP1
+ LD K0
+ - TEMP1
+ JZ comp_true_0
+comp_false_0 LV /0
+ JP fim_comp_0
+comp_true_0 LV /1
+fim_comp_0 OS /0
+ JZ fim_if_0
+ LD K1
+ SC output
+ JP fim_else_0
+fim_if_0 OS /0
+while_0 OS /0
+ LD main_n
+ MM TEMP2
+ LD K0
+ - TEMP2
+ JN comp_true_1
+comp_false_1 LV /0
+ JP fim_comp_1
+comp_true_1 LV /1
+fim_comp_1 OS /0
+ JZ fim_while_0
+ LD main_fat
+* main_n
+ MM TEMP3
+ MM main_fat
+ LD main_n
+- K1
+ MM TEMP4
+ MM main_n
+ JP while_0
+fim_while_0 OS /0
+ LD main_fat
+ SC output
+fim_else_0 OS /0
+ HM /0
+;*******************************
+; Subrotinas da MVN             
+;*******************************
+output OS /0
+ MM NUM
+ LD NUM
+w OS /0
+ JZ fim_w
+ / Ka
+ MM NUM_PROX
+ * Ka
+ MM NUM_TEMP
+ LD K9K
+ + SP
+ + SP_INICIO
+ MM EMPILHA
+ LD SP
+ + K2
+ MM SP
+ LD NUM
+ - NUM_TEMP
+EMPILHA OS /0
+ LD NUM_PROX
+ MM NUM
+ JP w
+fim_w OS /0
+w1 OS /0
+ LD SP
+ JZ fw0
+ LD SP
+ - K2
+ MM SP
+ LD K8K
+ + SP
+ + SP_INICIO
+ MM Des
+Des OS /0
+ + K48
+ PD /100
+ JP w1
+fw0 OS /0
+ RS output
+input OS /0
+ LV /30
+ PD /100
+ LV /2d
+ PD /100
+ LV /38
+ PD /100
+ LV /3e
+ PD /100
+ LV /20
+ PD /100
+ GD /0
+ / K256
+ - K48
+ RS input
+;*******************************
+; Area de variaveis e constantes
+;*******************************
+TEMP1 K /0
+TEMP2 K /0
+TEMP3 K /0
+TEMP4 K /0
+main_fat K /0
+main_n K /0
+TEMP0 K /0
+K1 K /1
+K0 K /0
+K256 K /100
+K48 K /30
+K2 K /2
+NUM        K /0000
+NUM_PROX   K /0000
+NUM_TEMP   K /0000
+SP         K /0000
+SP_INICIO  K /0F00
+Ka         K /000A
+K9K        K /9000
+K8K        K /8000
+# main
