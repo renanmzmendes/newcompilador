@@ -49,7 +49,7 @@ int main() {
     Estado estadoCorrente = PROGRAM_INICIAL;
     Estado estadoAnterior = 0;
     token = getNextToken(entrada);
-	while (token->tipo != EoF) {
+	while (token->tipo != EoF && estadoCorrente != PROGRAM_6_AC) {
         
         transicao trans;
         chamadaSubmaquina chamada;
